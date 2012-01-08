@@ -1,0 +1,7 @@
+Please use the following in Picard for File Naming. This can be found in Picard at Options, Options, File naming, Name files like this:
+
+%dir9%/%dir8%/%dir7%/%dir6%/%dir5%/%dir4%/%dir3%/%dir2%/%dir1%/%dir0%/%name1%. %name0%
+
+$unset(%dir0%) $unset(%dir1%) $unset(%dir2%) $unset(%dir3%) $unset(%dir4%) $unset(%dir5%) $unset(%dir6%) $unset(%dir7%) $unset(%dir8%) $unset(%dir9%)
+$unset(%name0%) $unset(%name1%)
+$unset(%filename%)

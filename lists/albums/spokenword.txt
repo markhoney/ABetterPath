@@ -1,0 +1,3 @@
+﻿spokenword = Spoken Word
+interview = Interview
+audiobook = Audio Book
