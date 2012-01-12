@@ -1,0 +1,5 @@
+Christmas = Various/Christmas
+Santa = Various/Christmas
+The Polar Express = Various/Christmas
+Tis the Season = Various/Christmas
+Yule = Various/Christmas

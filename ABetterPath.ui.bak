@@ -25,162 +25,9 @@
    <property name="currentIndex">
     <number>0</number>
    </property>
-   <widget class="QWidget" name="tab">
-    <attribute name="title">
-     <string>Artist</string>
-    </attribute>
-    <widget class="QGroupBox" name="alphaGroupBox">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>191</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Alpha</string>
-     </property>
-     <widget class="QWidget" name="formLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>171</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <layout class="QFormLayout" name="alphaLayout">
-       <property name="fieldGrowthPolicy">
-        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-       </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="artist_alphaLabel">
-         <property name="text">
-          <string>Alpha Folder</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="artist_alpha_numberLabel">
-         <property name="text">
-          <string>Number Symbol</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="artist_alpha_number">
-         <property name="maxLength">
-          <number>1</number>
-         </property>
-         <property name="placeholderText">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QCheckBox" name="artist_alpha"/>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="ArtistGroupBox">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>80</y>
-       <width>401</width>
-       <height>111</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Name</string>
-     </property>
-     <widget class="QWidget" name="formLayoutWidget_5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>251</width>
-        <height>80</height>
-       </rect>
-      </property>
-      <layout class="QFormLayout" name="formLayout_5">
-       <property name="fieldGrowthPolicy">
-        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-       </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="swapArtistNamesLabel">
-         <property name="text">
-          <string>Swap Names</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QCheckBox" name="artist_sort_name"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="prefixListLabel">
-         <property name="text">
-          <string>Prefix List</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="artist_sort_prefix_list"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="swapArtistPrefixesLabel">
-         <property name="text">
-          <string>Swap Prefixes</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QCheckBox" name="artist_sort_prefix"/>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="VariousArtistsgroupBox">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>0</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Various Artists</string>
-     </property>
-     <widget class="QWidget" name="formLayoutWidget_6">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>181</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <layout class="QFormLayout" name="formLayout_4">
-       <item row="0" column="0">
-        <widget class="QLabel" name="folderNameLabel">
-         <property name="text">
-          <string>Folder Name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="artist_various"/>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </widget>
    <widget class="QWidget" name="optionstab">
     <attribute name="title">
-     <string>Album</string>
+     <string>Options</string>
     </attribute>
     <widget class="QGroupBox" name="releaseGroupBox">
      <property name="geometry">
@@ -357,6 +204,119 @@
        </item>
        <item row="2" column="1">
         <widget class="QLineEdit" name="separatorLineEdit_2"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="ArtistGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>350</y>
+       <width>391</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Artist</string>
+     </property>
+     <widget class="QWidget" name="formLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>251</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_5">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="swapArtistNamesLabel">
+         <property name="text">
+          <string>Swap Names</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QCheckBox" name="swapArtistNamesCheckBox"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="prefixListLabel">
+         <property name="text">
+          <string>Prefix List</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="prefixListLineEdit"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="swapArtistPrefixesLabel">
+         <property name="text">
+          <string>Swap Prefixes</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="swapArtistPrefixesCheckBox"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="alphaGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>391</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Artist Alpha</string>
+     </property>
+     <widget class="QWidget" name="formLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="alphaLayout">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="alphaLabel">
+         <property name="text">
+          <string>Alpha Folder</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="alphaNumberLabel">
+         <property name="text">
+          <string>Number Symbol</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="alphaNumberEdit">
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QCheckBox" name="alphaCheckBox"/>
        </item>
       </layout>
      </widget>

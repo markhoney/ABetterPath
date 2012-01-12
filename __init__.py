@@ -14,8 +14,7 @@ from picard.album import Album
 from picard.util import partial
 from picard.mbxml import release_to_metadata
 
-#import pprint
-#import pickle
+import pickle
 import re, os, codecs, time
 import unicodedata
 
@@ -41,6 +40,7 @@ import unicodedata
 # find /mnt/media/Audio -name folder.png
 # find /mnt/media/Audio -name folder.tiff
 
+# http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html
 
 
 
@@ -50,190 +50,109 @@ PLUGIN_DESCRIPTION = 'Makes some extra tags to help with sorting out my music co
 PLUGIN_VERSION = "0.2"
 PLUGIN_API_VERSIONS = ["0.16"]
 
-
-def defaultSettings():
- settings = dict()
-
- settings['folders'] = dict()
- settings['folders']['lists'] = dict()
- settings['folders']['lists']['base'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lists')
- settings['folders']['lists']['artists'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lists', 'artists')
- settings['folders']['lists']['albums'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lists', 'albums')
- settings['folders']['lists']['albumgroups'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lists', 'albums', 'groups')
- settings['folders']['lists']['test'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lists', 'test')
-
- settings['chars'] = readfilelist(settings['folders']['lists']['base'], 'replacechars.txt')
- settings['various'] = "various artists"
- 
- settings['artist'] = dict()
- settings['artist']['alpha'] = dict()
- settings['artist']['alpha']['folder'] = True
- settings['artist']['alpha']['number'] = "#"
- settings['artist']['various'] = dict()
- settings['artist']['various']['name'] = 'Various'
- settings['artist']['sort'] = dict()
- settings['artist']['sort']['tag'] = True
- settings['artist']['sort']['itunes'] = dict()
- settings['artist']['sort']['itunes']['tag'] = True
- settings['artist']['sort']['itunes']['albumartist'] = True
- settings['artist']['sort']['prefix'] = dict()
- settings['artist']['sort']['prefix']['folder'] = True
- settings['artist']['sort']['prefix']['list'] =  ('A', 'An', 'The')
- settings['artist']['sort']['name'] = dict()
- settings['artist']['sort']['name']['folder'] = False
- settings['artist']['sort']['name']['tag'] = False
- settings['artist']['lists'] = dict()
- settings['artist']['lists']['pseudonyms'] = readfilelist(settings['folders']['lists']['artists'], 'pseudonyms.txt')
- settings['artist']['lists']['aliases'] = readfilelist(settings['folders']['lists']['artists'], 'aliases.txt')
- settings['artist']['lists']['collaborations'] = readfilelist(settings['folders']['lists']['artists'], 'collaborations.txt')['list']
- settings['artist']['lists']['albums'] = readfilelist(settings['folders']['lists']['artists'], 'albums.txt')
-
- settings['album'] = dict()
- settings['album']['sort'] = dict()
- settings['album']['sort']['tag'] = True
- settings['album']['date'] = dict()
- settings['album']['date']['formats'] = ['%Y-%m-%d', '%Y-%m', '%Y']
- settings['album']['date']['folder'] = False
- settings['album']['date']['tag'] = True
- settings['album']['date']['prefix'] = "["
- settings['album']['date']['suffix'] = "] "
- settings['album']['date']['format'] = "%Y"
- settings['album']['release'] = dict()
- settings['album']['release']['folder'] = True
- settings['album']['release']['prefix'] = " ("
- settings['album']['release']['suffix'] = ")"
- settings['album']['release']['type'] = dict()
- settings['album']['release']['type']['compilation'] = ('album', 'single', 'ep', 'live', 'other')
- settings['album']['release']['type']['list'] = ('Single', 'EP', 'Remix', 'Live') # releasetype
- settings['album']['release']['type']['reverse'] = ('')
- settings['album']['release']['status'] = dict()
- settings['album']['release']['status']['list'] = {'bootleg': 'Bootleg', 'promotion': 'Promo'} # releasestatus
- settings['album']['release']['status']['reverse'] = ('Live')
- settings['album']['catalog'] = dict()
- settings['album']['catalog']['folder'] = False
- settings['album']['catalog']['prefix'] = " ["
- settings['album']['catalog']['suffix'] = "]"
- settings['album']['catalog']['order'] = ('catalognumber', 'barcode', 'asin', 'date', 'totaltracks', 'releasetype')
- settings['album']['sub'] = dict()
- settings['album']['sub']['always'] = False
- settings['album']['sub']['folder'] = True
- settings['album']['sub']['tag'] = False
- settings['album']['sub']['disc'] = "Disc "
- settings['album']['sub']['prefix'] = " ("
- settings['album']['sub']['suffix'] = ")"
- settings['album']['sub']['title'] = dict()
- settings['album']['sub']['title']['folder'] = True
- settings['album']['sub']['title']['instead'] = False
- settings['album']['sub']['title']['separator'] = ": "
- settings['album']['christmas'] = dict()
- settings['album']['christmas']['folder'] = True
- settings['album']['christmas']['name'] = 'Christmas'
- settings['album']['christmas']['foldersplit'] = "|"
- settings['album']['christmas']['location'] = settings['artist']['various']['name'] + settings['album']['christmas']['foldersplit'] + settings['album']['christmas']['name']
- settings['album']['christmas']['list'] = readfilelist(settings['folders']['lists']['albums'], 'christmas.txt')['list']
- settings['album']['compilation'] = dict()
- settings['album']['compilation']['excluded'] = ('remix')
- settings['album']['compilation']['threshold'] = 0.75
- settings['album']['lists'] = dict()
- settings['album']['lists']['spoken'] = readfilelist(settings['folders']['lists']['albums'], 'spokenword.txt')
- settings['album']['lists']['folderchange'] = readfilelist(settings['folders']['lists']['albums'], 'folderchange.txt')
- settings['album']['lists']['foldersplit'] = "|"
- settings['album']['lists']['groups'] = dict()
- settings['album']['lists']['groups']['separator'] = ": "
- settings['album']['lists']['groups']["mix"] = readfilelist(settings['folders']['lists']['albumgroups'], 'mixes.txt')['list']
- settings['album']['lists']['groups']["compilation"] = readfilelist(settings['folders']['lists']['albumgroups'], 'compilations.txt')['list']
- settings['album']["soundtrack"] = dict() 
- settings['album']["soundtrack"]['artist'] = False
- settings['album']["soundtrack"]['list'] = readfilelist(settings['folders']['lists']['albumgroups'], 'soundtracks.txt')['list']
- 
- settings['track'] = dict()
- settings['track']['tracknumber'] = dict()
- settings['track']['tracknumber']['digits'] = 2
- settings['track']['tracknumber']['separator'] = '. '
- settings['track']['discnumber'] = dict()
- settings['track']['discnumber']['filename'] = False
- settings['track']['discnumber']['single'] = False
- settings['track']['discnumber']['separator'] = "-"
- settings['track']['artist'] = dict()
- settings['track']['artist']['filename'] = False
- settings['track']['artist']['compilation'] = True
- settings['track']['artist']['first'] = False
- settings['track']['artist']['separator'] = " - "
- settings['track']['tag'] = dict()
- settings['track']['tag']['filename'] = True
- 
- return settings
+def createCfgList():
+ separator = '\x00'
+ cfg = list()
+ #cfg.append(("text", 'separator', '\x00'))
+ #cfg.append(("text", 'various', "various artists"))
+ cfg.append(("bool", 'artist_alpha', True))
+ cfg.append(("text", 'artist_alpha_number', "#"))
+ cfg.append(("text", 'artist_various', 'Various'))
+ cfg.append(("bool", 'artist_sort_tag', True))
+ cfg.append(("bool", 'artist_sort_itunes', True))
+ cfg.append(("bool", 'artist_sort_itunes_albumartist', True))
+ cfg.append(("bool", 'artist_sort_prefix', True))
+ cfg.append(("bool", 'artist_sort_name', False))
+ cfg.append(("bool", 'artist_sort_name_tag', False))
+ cfg.append(("bool", 'album_sort_tag', True))
+ cfg.append(("bool", 'album_date_folder', False))
+ cfg.append(("bool", 'album_date_tag', True))
+ cfg.append(("text", 'album_date_prefix', "["))
+ cfg.append(("text", 'album_date_suffix', "] "))
+ cfg.append(("text", 'album_date_format', "%Y"))
+ cfg.append(("bool", 'album_release_folder', True))
+ cfg.append(("text", 'album_release_prefix', " ("))
+ cfg.append(("text", 'album_release_suffix', ")"))
+ cfg.append(("bool", 'album_catalog_folder', False))
+ cfg.append(("text", 'album_catalog_prefix', " ["))
+ cfg.append(("text", 'album_catalog_suffix', "]"))
+ cfg.append(("bool", 'album_sub_always', False))
+ cfg.append(("bool", 'album_sub_folder', True))
+ cfg.append(("bool", 'album_sub_tag', False))
+ cfg.append(("text", 'album_sub_disc', "Disc "))
+ cfg.append(("text", 'album_sub_prefix', " ("))
+ cfg.append(("text", 'album_sub_suffix', ")"))
+ cfg.append(("bool", 'album_sub_title_folder', True))
+ cfg.append(("bool", 'album_sub_title_instead', False))
+ cfg.append(("text", 'album_sub_title_separator', ": "))
+ cfg.append(("bool", 'album_christmas', True))
+ cfg.append(("int",  'album_compilation_threshold', 75))
+ cfg.append(("text", 'album_foldersplit', "|"))
+ cfg.append(("text", 'album_groups_separator', ": "))
+ cfg.append(("bool", 'album_soundtrack_artist', False))
+ cfg.append(("int",  'track_tracknumber_digits', 2))
+ cfg.append(("text", 'track_tracknumber_separator', '. '))
+ cfg.append(("bool", 'track_discnumber_filename', False))
+ cfg.append(("bool", 'track_discnumber_single', False))
+ cfg.append(("text", 'track_discnumber_separator', "-"))
+ cfg.append(("bool", 'track_artist_filename', False))
+ cfg.append(("bool", 'track_artist_compilation', True))
+ cfg.append(("bool", 'track_artist_first', False))
+ cfg.append(("text", 'track_artist_separator', " - "))
+ cfg.append(("bool", 'track_tag_filename', True))
+ cfg.append(("list", 'artist_sort_prefix_list',  pickle.dumps(('A', 'An', 'The'))))
+ cfg.append(("list", 'album_date_formats', pickle.dumps(('%Y-%m-%d', '%Y-%m', '%Y'))))
+ cfg.append(("dict", 'album_release_status_list', pickle.dumps({'bootleg': 'Bootleg', 'promotion': 'Promo'})))
+ cfg.append(("list", 'album_release_type_compilation', pickle.dumps(('album', 'single', 'ep', 'live', 'other'))))
+ cfg.append(("list", 'album_release_type_list', pickle.dumps(('Single', 'EP', 'Remix', 'Live'))))
+ cfg.append(("list", 'album_compilation_excluded', pickle.dumps(('remix'))))
+ cfg.append(("list", 'album_release_type_reverse', pickle.dumps((''))))
+ cfg.append(("list", 'album_release_status_reverse', pickle.dumps(('Live'))))
+ cfg.append(("list", 'album_catalog_order', pickle.dumps(('catalognumber', 'barcode', 'asin', 'date', 'totaltracks', 'releasetype'))))
+ lists = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lists')
+ for infile in os.listdir(lists):
+  if os.path.isfile(os.path.join(lists, infile)):
+   nameSplit = infile.rsplit(".", 1)[0].split("-", 1)
+   if len(nameSplit) > 1:
+    cfg.append((nameSplit[0], nameSplit[1], readfile(lists, infile, nameSplit[0].lower())))
+ return cfg
 
 
-#dontSortArtistNames = True
+def splitPath(path):
+ returnpath = list()
+ split = path.replace("\\", "/").split("/")
+ for sect in split:
+  returnpath.append(sect.strip())
+ return returnpath
 
-# $if2(%artist%,)
-#$if($stricmp($left(%artist%,3),'The'),$right(%artist%,$sub($len(%artist%),4)),%artist%)
-
-# http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html
-
-# The File Naming string to use with this script is:
-
-
-
-
-
-# $set(comment:description,%_recordingcomment%)
-# $set(originaldate,%_originaldate%)
-# metadata['originaldate'] = metadata['_originaldate']
-
-
-
-def pprintToFile(foldername, filename, data, encoding = 'utf-8'):
- with codecs.open(os.path.join(foldername, filename), 'w', encoding) as f:
-  pprint.pprint(data, f, 2, 9999)
- f.closed
-
-def writefile(foldername, filename, data, encoding = 'utf-8'):
- with codecs.open(os.path.join(foldername, filename), 'w', encoding) as f:
-  f.write(data)
- f.closed
-
-def splitline(line):
- listsplit = line.split('=', 1)
- list = [listsplit[0]]
- if len(listsplit) == 2:
-  list.extend(listsplit[1].split(',', 1))
- return ([x.strip() for x in list])
-
-def readfilelist(foldername, filename, encoding = 'utf-8'):
+def readfile(foldername, filename, fileType = "list", encoding = 'utf-8'):
  with codecs.open(os.path.join(foldername, filename), 'r', encoding) as f:
   line = f.readline()
-  splittype = len(splitline(line))
+  returnlist = list()
   returndict = dict()
-  if splittype == 1:
-   returndict['list'] = list()
   while line:
-   splitlist = splitline(line)
-   if splittype == 1:
-    returndict['list'].append(splitlist[0])
-   elif splittype == 2:
-    if splitlist[0] in returndict:
-     returndict[splitlist[0]].append(splitlist[1])
-    else:
-     returndict[splitlist[0]] = [splitlist[1]]
+   if fileType == "list":
+    returnlist.append(line.strip())
    else:
-    returndict[splitlist[2]] = [splitlist[1], splitlist[0]]
+    split1 = line.split("=", 1)
+    if len(split1) == 2:
+     if fileType == "dict":
+      returndict[split1[0].strip()] = split1[1].strip()
+     elif fileType == "tuple":
+      split2 = split1[0].split(",", 1)
+      if len(split2) == 2:
+       returndict[split1[1].strip()] = [split2[0].strip(), split2[1].strip()]
    line = f.readline()
-  return returndict
+  if fileType == "list":
+   return pickle.dumps(returnlist)
+  else:
+   return pickle.dumps(returndict)
  f.closed
 
-
-# http://www.ascii-code.com/
-
-# http://en.wikipedia.org/wiki/List_of_Unicode_characters#General_punctuation
-# http://www.rishida.net/tools/conversion/
-
-
-def replaceInvalidChars(dirpath):
+def replaceInvalidChars(dirpath, chars):
  filepathname = list()
  for dir in dirpath:
-  for old, new in settings['chars'].iteritems():
+  for old, new in chars.iteritems():
    dir = dir.replace(old, new[0])
   if dir[0:3] == '...':
    dir = u'\u2026' + dir[3:]
@@ -242,20 +161,18 @@ def replaceInvalidChars(dirpath):
   filepathname.append(dir.rstrip(". ").strip(" "))
  return filepathname
 
-def getalpha(text):
+def getAlpha(text, folderName):
  if text:
-  #return unidecode.unidecode(text)
-  #text = unidecode.unidecode(text)
   for initial in text:
    initial = unicodedata.normalize('NFKD', initial)[0:1]
    if initial.isalnum():
     if initial.isalpha():
      return initial.upper()
-    if settings['artist']['alpha']['number']:
-     return settings['artist']['alpha']['number']
+    if folderName:
+     return folderName
     return initial
-  if settings['artist']['alpha']['number']:
-   return settings['artist']['alpha']['number']
+  if folderName:
+   return folderName
   return text[0]
 
 def swapPrefix(text, prefixes):
@@ -264,10 +181,10 @@ def swapPrefix(text, prefixes):
    return ", ".join((text[len(prefix):].strip(), prefix))
  return text
 
-def isCompilation(release, albumartist, releasetype):
- if albumartist.lower() == settings['various']:
+def isCompilation(release, albumartist, releasetype, various, album_compilation_excluded, album_compilation_threshold):
+ if albumartist.lower() == various:
   return True
- if releasetype in settings['album']['compilation']['excluded']:
+ if releasetype in album_compilation_excluded:
   return False
  trackCount = 0
  artistMatch = 0
@@ -278,45 +195,32 @@ def isCompilation(release, albumartist, releasetype):
   for artist in track.recording[0].artist_credit[0].name_credit[0].artist:
    if artist.name[0].text == albumartist:
     artistMatch += 1
- if artistMatch / trackCount < settings['album']['compilation']['threshold']: #If less than 75% of the tracks have a credited artist that matches the Album Artist
+ if artistMatch / trackCount < (album_compilation_threshold / 100): #If less than 75% of the tracks have a credited artist that matches the Album Artist
   return True
+ return False
 
-# If this is an EP, Single or Live release, add a bracketed suffix. This tests for:
-#
-#					|	official		bootleg					promomotional
-#--------------------------------------------------------------------------------
-#	album			|					Bootleg					Promo
-#	other			|					Bootleg					Promo
-#	compilation		|					Bootleg					Promo
-#	single			|	Single			Bootleg Single			Promo Single
-#	ep				|	EP				Bootleg EP				Promo EP
-#	remix			|	Remix			Bootleg Remix			Promo Remix
-#	live			|	Live			Live Bootleg			Live Promo
-
-# Discarded option
-#	compilation		|	Compilation		Bootleg Compilation		Promo Compilation
-
-def createAlbumSuffix(releasestatus, releasetype, album):
+def createAlbumSuffix(releasestatus, releasetype, album, config):
  suffixlist = list()
- for status in settings['album']['release']['status']['list']:
+ album_release_status_list = pickle.loads(config['album_release_status_list'])
+ for status in album_release_status_list:
   if releasestatus.lower() == status.lower():
    if not status.lower() in album.lower():
-    suffixlist.append(settings['album']['release']['status']['list'][status])
- for albumtype in settings['album']['release']['type']['list']:
+    suffixlist.append(album_release_status_list[status])
+ for albumtype in pickle.loads(config['album_release_type_list']):
   if releasetype.lower() == albumtype.lower():
    if not albumtype.lower() in album.lower():
     suffixlist.append(albumtype)
  if len(suffixlist) > 1:
-  if suffixlist[0] in settings['album']['release']['status']['reverse'] or suffixlist[1] in settings['album']['release']['type']['reverse']:
+  if suffixlist[0] in pickle.loads(config['album_release_status_reverse']) or suffixlist[1] in pickle.loads(config['album_release_type_reverse']):
    suffixlist.reverse()
  if len(suffixlist) > 0:
-  return settings['album']['release']['prefix'] + ' '.join(suffixlist) + settings['album']['release']['suffix']
+  return config['album_release_prefix'] + ' '.join(suffixlist) + config['album_release_suffix']
  return ""
 
-def getAlbumDate(dateList):
+def getAlbumDate(dateList, album_date_formats):
  date = False
  for albumDate in dateList:
-  for dateFormat in settings['album']['date']['formats']:
+  for dateFormat in album_date_formats:
    try:
     dateTemp = datetime.strptime(albumDate, dateFormat)
    except:
@@ -326,231 +230,227 @@ def getAlbumDate(dateList):
      date = dateTemp
  return date
 
-def checkArtistAliases(albumdetails):
- if albumdetails['name'] in settings['artist']['lists']['albums']:
-  if settings['artist']['lists']['albums'][albumdetails['name']][0] == albumdetails['artist']:
-   albumdetails['artist'] = settings['artist']['lists']['albums'][albumdetails['name']][1]
- for realname in settings['artist']['lists']['collaborations']:
+def checkArtistAliases(albumdetails, artist_album_to_artist, artists_to_artist, artist_to_artist, artist_to_artist_pseudonym):
+ if albumdetails['name'] in artist_album_to_artist:
+  if artist_album_to_artist[albumdetails['name']][0] == albumdetails['artist']:
+   albumdetails['artist'] = artist_album_to_artist[albumdetails['name']][1]
+ for realname in artists_to_artist:
   if albumdetails['artist'].startswith(realname):
    albumdetails['artist'] = realname
- for realname in settings['artist']['lists']['aliases']:
-  if albumdetails['artist'] in settings['artist']['lists']['aliases'][realname]:
-   albumdetails['artist'] = realname
- for realname in settings['artist']['lists']['pseudonyms']:
-  if albumdetails['artist'] in settings['artist']['lists']['pseudonyms'][realname]:
-   albumdetails['pseudonym'] = albumdetails['artist']
-   albumdetails['artist'] = realname
+ if albumdetails['artist'] in artist_to_artist:
+  albumdetails['artist'] = artist_to_artist[albumdetails['artist']]
+ if albumdetails['artist'] in artist_to_artist_pseudonym:
+  albumdetails['pseudonym'] = albumdetails['artist']
+  albumdetails['artist'] = artist_to_artist_pseudonym[albumdetails['artist']]
  return albumdetails
 
-def checkAlbumAliases(albumdetails):
+def checkAlbumAliases(albumdetails, album_group_to_folder, separator = ": "):
  albumName = albumdetails['name']
- for albumgroup in settings['album']['lists']['groups']:
-  for albumprefix in settings['album']['lists']['groups'][albumgroup]:
-   if albumName.startswith(albumprefix) and albumprefix not in albumdetails['group']: # If our album name starts with one of our gourp prefixes, and the prefix hasn't already been 
-    albumdetails['type'] = albumgroup # Set the type of album (e.g. Mix, Compilation, etc)
-    albumdetails['group'].append(albumprefix)
-    albumName = albumName[len(albumprefix):].lstrip(" :-,.") # Remove the album prefix and any joining characters
-    if albumName[0:3] == 'by ':
-     albumName = albumName[3:]
-    if not albumName: # If there's nothing left to differentiate the album (which could cause clashes with multiple albums named the same)
-     albumdetails['name'] = albumdetails['name'] + settings['album']['lists']['groups']['separator'] + albumdetails["artist"]
+ groups = list()
+ for albumprefix, folder in album_group_to_folder.iteritems():
+  if albumName.startswith(albumprefix) and albumprefix not in groups: # If our album name starts with one of our group prefixes, and the prefix hasn't already been
+   albumdetails['path'] = splitPath(folder)
+   groups.append(albumprefix)
+   albumName = albumName[len(albumprefix):].lstrip(" :-,.") # Remove the album prefix and any joining characters
+   if albumName[0:3] == 'by ':
+    albumName = albumName[3:]
+   if not albumName: # If there's nothing left to differentiate the album (which could cause clashes with multiple albums named the same)
+    albumdetails['name'] = albumdetails['name'] + separator + albumdetails["artist"]
+ albumdetails['path'].extend(groups)
  return albumdetails
 
-def checkAliases(artistname, albumname):
- albumdetails = {'name': albumname, 'artist': artistname, 'pseudonym': '', 'type': '', 'group': list()}
- #newalbumdetails = albumdetails
- #newalbumdetails['name'] = ''
- #while albumdetails != newalbumdetails:
-#  albumdetails = newalbumdetails
-#  newalbumdetails = checkArtistAliases(checkAlbumAliases(albumdetails))
- albumdetails = checkArtistAliases(checkAlbumAliases(albumdetails))
- return albumdetails
- 
+def changePath(albumdetails, albumType, artist_album_to_folder, album_partial_to_folder, type_to_folder):
+ for newPath, album in artist_album_to_folder.iteritems():
+  if (album[0] == albumdetails['originalartist'] or album[0] == albumdetails['artist']) and (album[1] == albumdetails['originalname'] or album[1] == albumdetails['name']):
+   return splitPath(newPath).append(albumdetails['artist'])
+ for albumPart in album_partial_to_folder:
+  if albumPart in albumdetails['originalname'] or albumPart in albumdetails['name']:
+   return splitPath(album_partial_to_folder[albumPart]).append(albumdetails['artist'])
+ if albumType.lower() in type_to_folder:
+  return splitPath(type_to_folder[albumType.lower()]).append(albumdetails['artist'])
+ return list()
+
+
+
+
+
+
+
+
 def createAlbumTags(tagger, metadata, release, track = False):
- albumdetails = checkAliases(metadata["albumartist"], metadata["album"])
- albumdetails['compilation'] = False
- if isCompilation(release, metadata["albumartist"], metadata["releasetype"]):
-  albumdetails['compilation'] = True
-
- albumdetails['path'] = list()
- if metadata['album'] in settings['album']['lists']['folderchange']:
-  if settings['album']['lists']['folderchange'][metadata['album']][0] == metadata['albumartist']:
-   albumdetails['path'] = settings['album']['lists']['folderchange'][metadata['album']][1].split(settings['album']['lists']['foldersplit'])
- if not albumdetails['path'] and settings['album']["soundtrack"]['artist'] and (metadata['releasetype'].lower() == 'soundtrack' or metadata['albumname'] in settings['album']["soundtrack"]["list"]):
-  #albumdetails['path'] = list()
-  albumdetails['path'].append(settings['artist']['various']['name'])
-  albumdetails['path'].append('Soundtrack')
-  for release in albumdetails['group']:
-   albumdetails['path'].append(release)
- if settings['artist']['sort']['prefix']['folder']: 
-  albumdetails['artist'] = swapPrefix(albumdetails['artist'], settings['artist']['sort']['prefix']['list'])
- if not albumdetails['path'] and settings['album']['christmas']['folder']:
-  for listitem in settings['album']['christmas']['list']:
-   if listitem in metadata['album']:
-    albumdetails['path'] = settings['album']['christmas']['location'].split(settings['album']['christmas']['foldersplit'])
-    albumdetails['path'].append(albumdetails['artist'])
+ config = tagger.config.setting
+ #albumdetails = {'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'group': list(), 'path': list()}
+ #albumdetails = checkArtistAliases(checkAlbumAliases(albumdetails, pickle.loads(config['album_group_to_folder']), config['album_groups_separator']), pickle.loads(config['artist_album_to_artist']), pickle.loads(config['artists_to_artist']), pickle.loads(config['artist_to_artist']), pickle.loads(config['artist_to_artist_pseudonym']))
+ #albumdetails['compilation'] = isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], config['album_compilation_excluded'], config['album_compilation_threshold'])
+ albumdetails = checkArtistAliases(checkAlbumAliases({'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'path': list(), 'compilation': isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], config['album_compilation_excluded'], config['album_compilation_threshold'])}, pickle.loads(config['album_group_to_folder']), config['album_groups_separator']), pickle.loads(config['artist_album_to_artist']), pickle.loads(config['artists_to_artist']), pickle.loads(config['artist_to_artist']), pickle.loads(config['artist_to_artist_pseudonym']))
+ if not albumdetails['path']:
+  changePath(albumdetails, metadata['releasetype'], pickle.loads(config['artist_album_to_folder']), pickle.loads(config['album_partial_to_folder']), pickle.loads(config['type_to_folder']))
+ if config['artist_sort_prefix']:
+  albumdetails['artist'] = swapPrefix(albumdetails['artist'], config['artist_sort_prefix_list'])
 
  if albumdetails['path']:
   pass
- elif albumdetails["type"].lower() in settings['album']['lists']['spoken']:
-  albumdetails['path'] = ["Spoken"]
-  albumdetails['path'].append(settings['album']['lists']['spoken'][albumdetails["type"].lower()])
-  albumdetails['path'].append(albumdetails['artist'])
  else:
   albumdetails['path'] = ["Music"]
-  if albumdetails['artist'] == metadata["albumartist"] and (albumdetails['type'] or albumdetails['compilation']):
-   albumdetails['path'].append(settings['artist']['various']['name'])
-   if albumdetails["type"]:
-    albumdetails['path'].append(albumdetails["type"].capitalize())
-    for release in albumdetails['group']:
-     albumdetails['path'].append(release)
+  if albumdetails['compilation']:
+   albumdetails['path'].append(config['artist_various'])
+   if metadata["releasetype"].lower() in config['album_release_type_compilation']:
+    albumdetails['path'].append('Compilation')
    else:
-    if metadata["releasetype"].lower() in settings['album']['release']['type']['compilation']:
-     albumdetails['path'].append('Compilation')
-    else:
-     albumdetails['path'].append(metadata["releasetype"].capitalize())
+    albumdetails['path'].append(metadata["releasetype"].capitalize())
   else: #Album or Other or not set
    albumdetails['path'].append('Artists')
-   if settings['artist']['alpha']['folder'] and albumdetails['artist']:
-    albumdetails['path'].append(getalpha(albumdetails['artist']))
+   if config['artist_alpha'] and albumdetails['artist']:
+    albumdetails['path'].append(getAlpha(albumdetails['artist'], config['artist_alpha_number']))
    albumdetails['path'].append(albumdetails['artist'])
    if albumdetails['pseudonym']:
-    if settings['artist']['sort']['prefix']['folder']:
-     albumdetails['pseudonym'] = swapPrefix(albumdetails['pseudonym'], settings['artist']['sort']['prefix']['list'])
+    if config['artist_sort_prefix']:
+     albumdetails['pseudonym'] = swapPrefix(albumdetails['pseudonym'], pickle.loads(config['artist_sort_prefix_list']))
     albumdetails['path'].append(albumdetails['pseudonym'])
-
-# Create an album year prefix for albums with a date set
-# [1993] Siamese Dream
- albumDate = getAlbumDate((metadata["originaldate"], metadata["date"], metadata["album"].split(":")[0]))
- #if albumDate and settings['album']['date']['tag'] and not metadata['~id3:TDOR']:
- # metadata['~id3:TDOR'] = time.strftime('%Y-%m-%d', albumDate)
+ albumDate = getAlbumDate((metadata["originaldate"], metadata["date"], metadata["album"].split(":")[0]), config['album_date_formats'])
  albumYear = ""
- if settings['album']['date']['folder'] and albumDate:
-  albumYear = settings['album']['date']['prefix'] + time.strftime(settings['album']['date']['format'], albumDate) + settings['album']['date']['suffix']
-
- albumSuffix = createAlbumSuffix(metadata["releasestatus"], metadata["releasetype"], metadata["album"])
-
-#Build our album directory
+ if config['album_date_folder'] and albumDate:
+  albumYear = config['album_date_prefix'] + time.strftime(config['album_date_format'], albumDate) + config['album_date_suffix']
+ albumSuffix = createAlbumSuffix(metadata["releasestatus"], metadata["releasetype"], metadata["album"], config)
  albumdetails['path'].append(albumYear + albumdetails['name'] + albumSuffix)
-
- if not settings['artist']['sort']['tag']:
+ if not config['artist_sort_tag']:
   metadata["albumartistsort"] = albumdetails['artist']
-
  #metadata['filename'] = os.path.join(*filepathname)
  metadata['filename'] = '\x00'.join(albumdetails['path'])
  if albumdetails['compilation']:
   metadata['compilation'] = "1" # Mark the release as a compilation
 
+
+
+
+
+
 def createTrackTags(tagger, metadata, release, track = False):
+ config = tagger.config.setting
  trackdetails = dict()
  trackdetails['path'] = metadata['filename'].split('\x00')
  trackdetails['compilation'] = False
  if metadata["compilation"]:
   if int(metadata["compilation"]) == 1:
    trackdetails['compilation'] = True
- #metadata["compilation"] = ""
-
-# Add an album sub-folder if this is a bonus or multi-part album, e.g.
-# xx/Bonus Disc
-# Greatest Hits; Rotten Apples/Judas Ø
-# Live in Washington D.C./Disc 1
-# Mellon Collie and the Infinite Sadness/Dawn to Dusk
-# if metadata["discnumber"] or discbonus:
  trackdetails['discs'] = 1
  trackdetails['discsuffix'] = ""
  if metadata["totaldiscs"]:
   trackdetails['discs'] = int(metadata["totaldiscs"])
-  if trackdetails['discs'] > 1 or settings['album']['sub']['always']:
-   subDiscName = settings['album']['sub']['disc'] + metadata["discnumber"]
-   if metadata["discsubtitle"] and settings['album']['sub']['title']['folder']:
-    if settings['album']['sub']['title']['instead']:
+  if trackdetails['discs'] > 1 or config['album_sub_always']:
+   subDiscName = config['album_sub_disc'] + metadata["discnumber"]
+   if metadata["discsubtitle"] and config['album_sub_title_folder']:
+    if config['album_sub_title_instead']:
      subDiscName = metadata["discsubtitle"]
     else:
-     subDiscName += settings['album']['sub']['title']['separator'] + metadata["discsubtitle"]
-   if settings['album']['sub']['folder']:
+     subDiscName += config['album_sub_title_separator'] + metadata["discsubtitle"]
+   if config['album_sub_folder']:
     trackdetails['path'].append(subDiscName)
-   if settings['album']['sub']['tag']:
-    metadata["album"] += settings['album']['sub']['prefix'] + subDiscName + settings['album']['sub']['suffix']
-
+   if config['album_sub_tag']:
+    metadata["album"] += config['album_sub_prefix'] + subDiscName + config['album_sub_suffix']
  if metadata["tracknumber"]:
-  tracknumber = metadata["tracknumber"].zfill(settings['track']['tracknumber']['digits'])
-  if settings['track']['discnumber']['filename'] and (settings['track']['discnumber']['single'] or trackdetails['discs'] > 1):
-   tracknumber = metadata["discnumber"] + settings['track']['discnumber']['separator'] + tracknumber
+  tracknumber = metadata["tracknumber"].zfill(config['track_tracknumber_digits'])
+  if config['track_discnumber_filename'] and (config['track_discnumber_single'] or trackdetails['discs'] > 1):
+   tracknumber = metadata["discnumber"] + config['track_discnumber_separator'] + tracknumber
   trackdetails['filename'] = metadata["title"]
-  if settings['track']['artist']['filename'] or (settings['track']['artist']['compilation'] and trackdetails['compilation']):
-   if settings['track']['artist']['first']:
-    trackdetails['filename'] = metadata["artist"] + settings['track']['artist']['separator'] + trackdetails['filename']
+  if config['track_artist_filename'] or (config['track_artist_compilation'] and trackdetails['compilation']):
+   if config['track_artist_first']:
+    trackdetails['filename'] = metadata["artist"] + config['track_artist_separator'] + trackdetails['filename']
    else:
-    trackdetails['filename'] = trackdetails['filename'] + settings['track']['artist']['separator'] + metadata["artist"]
-  for old, new in settings['chars'].iteritems():
+    trackdetails['filename'] = trackdetails['filename'] + config['track_artist_separator'] + metadata["artist"]
+  for old, new in pickle.loads(config['chars_to_chars']).iteritems():
    trackdetails['filename'] = trackdetails['filename'].replace(old, new[0])
-
- trackdetails['path'] = replaceInvalidChars(trackdetails['path'])
-
- #filepathname.reverse()
+ trackdetails['path'] = replaceInvalidChars(trackdetails['path'], pickle.loads(config['chars_to_chars']))
  index = 0
  for namepart in reversed(trackdetails['path']):
   metadata['dir' + str(index)] = namepart
   index += 1
  metadata['name1'] = tracknumber
  metadata['name0'] = trackdetails['filename']
-
- #filepathname.reverse()
- trackdetails['path'].append(tracknumber + settings['track']['tracknumber']['separator'] + trackdetails['filename'] + '.mp3')
+ trackdetails['path'].append(tracknumber + config['track_tracknumber_separator'] + trackdetails['filename'] + '.mp3')
  #metadata['filename'] = os.path.join(*trackdetails['path'])
  metadata['filename'] = "/".join(trackdetails['path'])
- if settings['track']['tag']['filename']:
+ if config['track_tag_filename']:
   metadata['~id3:TOFN'] = metadata['filename']
- 
- if not settings['artist']['sort']['tag']:
+ if not config['artist_sort_tag']:
   metadata["artistsort"] = metadata["artist"]
-
- if not settings['album']['sort']['tag']:
+ if not config['album_sort_tag']:
   metadata["albumsort"] = metadata["album"]
- if settings['album']['sub']['tag'] and trackdetails['discsuffix']:
+ if config['album_sub_tag'] and trackdetails['discsuffix']:
   metadata["albumsort"] += trackdetails['discsuffix']
-
- if settings['artist']['sort']['itunes']['tag']:
-  if settings['artist']['sort']['itunes']['albumartist']:
+ if config['artist_sort_itunes']:
+  if config['artist_sort_itunes_albumartist']:
    metadata['~id3:TSO2'] = metadata['albumartistsort']
   else:
    metadata['~id3:TSO2'] = metadata['artistsort']
 
 
 
-class abetterpathoptionspage(OptionsPage):
- NAME = "betterpath"
- TITLE = "BetterPath"
- PARENT = "plugins"
- 
- options = [
-			BoolOption("setting", "betterpath_alphaFolder", True),
-			TextOption("setting", "betterpath_alphaNumber", "#")
-		   ]
 
+
+
+
+   
+
+class abetterpathoptionspage(OptionsPage):
+ NAME = "abetterpath"
+ TITLE = "A Better Path"
+ PARENT = "plugins"
+
+ cfg = createCfgList()
+ options = list()
+ options.append(TextOption("setting", 'separator', '\x00'))
+ options.append(TextOption("setting", 'various', "various artists"))
+ for option in cfg:
+  if option[0] == 'bool':
+   options.append(BoolOption("setting", option[1], option[2]))
+  elif option[0] == 'int':
+   options.append(IntOption("setting", option[1], option[2]))
+  else: # option[0] == 'text':
+   options.append(TextOption("setting", option[1], option[2]))
+  
 
  def __init__(self, parent=None):
   super(abetterpathoptionspage, self).__init__(parent)
   self.ui = Ui_ABetterPathOptionsPage()
   self.ui.setupUi(self)
 
+ def load_defaults(self):
+  pass
 
  def load(self):
-  configArray = ["betterpath_alphaFolder", "betterpath_alphaNumber"]
-  cfg = self.config.setting
-  for var in configArray:
-   setattr(self.ui, var, cfg[var])
+  cfg = createCfgList()
+  for option in cfg:
+   if option[0] == 'bool':
+    getattr(self.ui, option[1]).setChecked(self.config.setting[option[1]])
+   elif option[0] == 'text':
+    value = getattr(self.ui, option[1])
+    value.setText(self.config.setting[option[1]])
+   elif option[0] == 'int':
+    value = getattr(self.ui, option[1])
+    value.setInt(self.config.setting[option[1]])
 
- def save(self):
-  configArray = ["betterpath_alphaFolder", "betterpath_alphaNumber"]
-  for var in configArray:
-   self.config.setting[var] = getattr(self.ui, var)
+def save(self):
+ cfg = createCfgList()
+ self.config.setting["artist_alpha"] = False
+ self.config.setting["artist_alpha_number"] = "1"
+ #self.config.setting["artist_alpha"] = self.ui.artist_alpha.isChecked
+ #self.config.setting["artist_alpha_number"] = self.ui.artist_alpha.text
+# for option in cfg:
+#   if option[0] == 'bool':
+#    value = getattr(self.ui, option[1])
+#    self.config.setting[option[1]] = value.isChecked()
+#   elif option[0] == 'text':
+#    value = getattr(self.ui, option[1])
+#    self.config.setting[option[1]] = value.text()
+#   elif option[0] == 'int':
+#    value = getattr(self.ui, option[1])
+#    self.config.setting[option[1]] = value.value()
+  #self.config.setting["artist_alpha"] = self.ui.artist_alpha()
+  #self.config.setting["artist_alpha_number"] = self.ui.artist_alpha_number.text()
 
 
-settings = defaultSettings()
 
-#register_album_metadata_processor(compilationCheck)
 register_album_metadata_processor(createAlbumTags)
 register_track_metadata_processor(createTrackTags)
-
 register_options_page(abetterpathoptionspage)
