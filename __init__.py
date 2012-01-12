@@ -286,7 +286,7 @@ def createAlbumTags(tagger, metadata, release, track = False):
  if not albumdetails['path']:
   changePath(albumdetails, metadata['releasetype'], pickle.loads(config['artist_album_to_folder']), pickle.loads(config['album_partial_to_folder']), pickle.loads(config['type_to_folder']))
  if config['artist_sort_prefix']:
-  albumdetails['artist'] = swapPrefix(albumdetails['artist'], config['artist_sort_prefix_list'])
+  albumdetails['artist'] = swapPrefix(albumdetails['artist'], pickle.loads(config['artist_sort_prefix_list']))
 
  if albumdetails['path']:
   pass
