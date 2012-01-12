@@ -282,7 +282,7 @@ def createAlbumTags(tagger, metadata, release, track = False):
  #albumdetails = {'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'group': list(), 'path': list()}
  #albumdetails = checkArtistAliases(checkAlbumAliases(albumdetails, pickle.loads(config['album_group_to_folder']), config['album_groups_separator']), pickle.loads(config['artist_album_to_artist']), pickle.loads(config['artists_to_artist']), pickle.loads(config['artist_to_artist']), pickle.loads(config['artist_to_artist_pseudonym']))
  #albumdetails['compilation'] = isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], config['album_compilation_excluded'], config['album_compilation_threshold'])
- albumdetails = checkArtistAliases(checkAlbumAliases({'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'path': list(), 'compilation': isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], config['album_compilation_excluded'], config['album_compilation_threshold'])}, pickle.loads(config['album_group_to_folder']), config['album_groups_separator']), pickle.loads(config['artist_album_to_artist']), pickle.loads(config['artists_to_artist']), pickle.loads(config['artist_to_artist']), pickle.loads(config['artist_to_artist_pseudonym']))
+ albumdetails = checkArtistAliases(checkAlbumAliases({'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'path': list(), 'compilation': isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], pickle.loads(config['album_compilation_excluded']), config['album_compilation_threshold'])}, pickle.loads(config['album_group_to_folder']), config['album_groups_separator']), pickle.loads(config['artist_album_to_artist']), pickle.loads(config['artists_to_artist']), pickle.loads(config['artist_to_artist']), pickle.loads(config['artist_to_artist_pseudonym']))
  if not albumdetails['path']:
   changePath(albumdetails, metadata['releasetype'], pickle.loads(config['artist_album_to_folder']), pickle.loads(config['album_partial_to_folder']), pickle.loads(config['type_to_folder']))
  if config['artist_sort_prefix']:
@@ -307,7 +307,7 @@ def createAlbumTags(tagger, metadata, release, track = False):
     if config['artist_sort_prefix']:
      albumdetails['pseudonym'] = swapPrefix(albumdetails['pseudonym'], pickle.loads(config['artist_sort_prefix_list']))
     albumdetails['path'].append(albumdetails['pseudonym'])
- albumDate = getAlbumDate((metadata["originaldate"], metadata["date"], metadata["album"].split(":")[0]), config['album_date_formats'])
+ albumDate = getAlbumDate((metadata["originaldate"], metadata["date"], metadata["album"].split(":")[0]), pickle.loads(config['album_date_formats']))
  albumYear = ""
  if config['album_date_folder'] and albumDate:
   albumYear = config['album_date_prefix'] + time.strftime(config['album_date_format'], albumDate) + config['album_date_suffix']
@@ -421,14 +421,15 @@ class abetterpathoptionspage(OptionsPage):
  def load(self):
   cfg = createCfgList()
   for option in cfg:
-   if option[0] == 'bool':
-    getattr(self.ui, option[1]).setChecked(self.config.setting[option[1]])
-   elif option[0] == 'text':
-    value = getattr(self.ui, option[1])
-    value.setText(self.config.setting[option[1]])
-   elif option[0] == 'int':
-    value = getattr(self.ui, option[1])
-    value.setInt(self.config.setting[option[1]])
+   if hasattr(self.ui, option[1]):
+    if option[0] == 'bool':
+     getattr(self.ui, option[1]).setChecked(self.config.setting[option[1]])
+    elif option[0] == 'int':
+     value = getattr(self.ui, option[1])
+     value.setInt(self.config.setting[option[1]])
+    else: #if option[0] == 'text':
+     value = getattr(self.ui, option[1])
+     value.setText(self.config.setting[option[1]])
 
 def save(self):
  cfg = createCfgList()
