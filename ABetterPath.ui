@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -185,8 +185,8 @@
     <widget class="QGroupBox" name="releaseGroupBox">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>80</y>
+       <x>20</x>
+       <y>180</y>
        <width>391</width>
        <height>271</height>
       </rect>
@@ -236,6 +236,64 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="formLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>20</y>
+        <width>160</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_3">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="discSubfolderLabel">
+         <property name="text">
+          <string>Disc Subfolder</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="discSubfolderComboBox"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="prefixLabel_3">
+         <property name="text">
+          <string>Prefix</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="prefixLineEdit_3"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="separatorLabel_2">
+         <property name="text">
+          <string>Separator</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="separatorLineEdit_2"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="albumDategroupBox">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>211</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Date</string>
+     </property>
      <widget class="QWidget" name="formLayoutWidget_3">
       <property name="geometry">
        <rect>
@@ -252,12 +310,12 @@
        <item row="0" column="0">
         <widget class="QLabel" name="dateLabel">
          <property name="text">
-          <string>Date</string>
+          <string>Folder</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QCheckBox" name="dateCheckBox"/>
+        <widget class="QCheckBox" name="album_date_folder"/>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="prefixLabel_2">
@@ -312,51 +370,6 @@
        </item>
        <item row="4" column="1">
         <widget class="QLineEdit" name="padDateLineEdit"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="formLayoutWidget_4">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>20</y>
-        <width>160</width>
-        <height>101</height>
-       </rect>
-      </property>
-      <layout class="QFormLayout" name="formLayout_3">
-       <property name="fieldGrowthPolicy">
-        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-       </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="discSubfolderLabel">
-         <property name="text">
-          <string>Disc Subfolder</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="discSubfolderComboBox"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="prefixLabel_3">
-         <property name="text">
-          <string>Prefix</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="prefixLineEdit_3"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="separatorLabel_2">
-         <property name="text">
-          <string>Separator</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="separatorLineEdit_2"/>
        </item>
       </layout>
      </widget>
