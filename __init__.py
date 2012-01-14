@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 # latin-1
 
-from PyQt4 import QtGui, QtCore
-from PyQt4.QtCore import QUrl
+from PyQt4 import QtCore #, QtGui
+#from PyQt4.QtCore import QUrl
 
 from picard.ui.options import register_options_page, OptionsPage
 from picard.config import BoolOption, IntOption, TextOption
 from picard.plugins.abetterpath.ui_options_abetterpath import Ui_ABetterPathOptionsPage
-from picard.metadata import register_album_metadata_processor
-from picard.metadata import register_track_metadata_processor
+from picard.metadata import register_album_metadata_processor, register_track_metadata_processor
 #from picard.script import register_script_function
 from picard.album import Album
 from picard.util import partial
 from picard.mbxml import release_to_metadata
+import traceback
 
 import pickle
 import re, os, codecs, time
@@ -410,7 +410,7 @@ class abetterpathoptionspage(OptionsPage):
    options.append(TextOption("setting", option[1], option[2]))
   
 
- def __init__(self, parent=None):
+ def __init__(self, parent = None):
   super(abetterpathoptionspage, self).__init__(parent)
   self.ui = Ui_ABetterPathOptionsPage()
   self.ui.setupUi(self)
@@ -425,30 +425,37 @@ class abetterpathoptionspage(OptionsPage):
     if option[0] == 'bool':
      getattr(self.ui, option[1]).setChecked(self.config.setting[option[1]])
     elif option[0] == 'int':
-     value = getattr(self.ui, option[1])
-     value.setInt(self.config.setting[option[1]])
-    else: #if option[0] == 'text':
-     value = getattr(self.ui, option[1])
-     value.setText(self.config.setting[option[1]])
+     getattr(self.ui, option[1]).setValue(self.config.setting[option[1]])
+    elif option[0] == 'text':
+     getattr(self.ui, option[1]).setText(self.config.setting[option[1]])
+    elif option[0] == 'list':
+     pass
+    elif option[0] == 'dict':
+     pass
+    elif option[0] == 'tuple':
+     pass
 
-def save(self):
- cfg = createCfgList()
- self.config.setting["artist_alpha"] = False
- self.config.setting["artist_alpha_number"] = "1"
- #self.config.setting["artist_alpha"] = self.ui.artist_alpha.isChecked
- #self.config.setting["artist_alpha_number"] = self.ui.artist_alpha.text
-# for option in cfg:
-#   if option[0] == 'bool':
-#    value = getattr(self.ui, option[1])
-#    self.config.setting[option[1]] = value.isChecked()
-#   elif option[0] == 'text':
-#    value = getattr(self.ui, option[1])
-#    self.config.setting[option[1]] = value.text()
-#   elif option[0] == 'int':
-#    value = getattr(self.ui, option[1])
-#    self.config.setting[option[1]] = value.value()
-  #self.config.setting["artist_alpha"] = self.ui.artist_alpha()
-  #self.config.setting["artist_alpha_number"] = self.ui.artist_alpha_number.text()
+
+ def save(self):
+  cfg = createCfgList()
+  self.config.setting["artist_alpha"] = False
+  self.config.setting["artist_alpha_number"] = "9"
+  for option in cfg:
+   if hasattr(self.ui, option[1]):
+    if option[0] == 'bool':
+     self.config.setting[option[1]] = getattr(self.ui, option[1]).isChecked()
+    elif option[0] == 'text':
+     self.config.setting[option[1]] = getattr(self.ui, option[1]).text()
+    elif option[0] == 'int':
+     self.config.setting[option[1]] = getattr(self.ui, option[1]).value()
+    elif option[0] == 'list':
+     pass
+    elif option[0] == 'dict':
+     pass
+    elif option[0] == 'tuple':
+     pass
+
+
 
 
 
