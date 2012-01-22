@@ -14,7 +14,7 @@ from picard.util import partial
 from picard.mbxml import release_to_metadata
 import traceback
 
-import pickle
+import cPickle, pickle, base64
 import re, os, codecs, time
 import unicodedata
 
@@ -55,8 +55,11 @@ def createCfgList():
  cfg = list()
  #cfg.append(("text", 'separator', '\x00'))
  #cfg.append(("text", 'various', "various artists"))
- cfg.append(("bool", 'artist_alpha', True))
- cfg.append(("text", 'artist_alpha_number', "#"))
+ cfg.append(("bool", 'artist_alpha', True, "Alpha Folder", "Create an alphabetical folder level for the first letter of an artist's name"))
+ cfg.append(("text", 'artist_alpha_number', "#", "Number Symbol"))
+ cfg.append(("bool", 'artist_alpha_upper', True, "Convert "))
+ cfg.append(("bool", 'artist_alpha_unicode_convert', True, "Convert", ""))
+ cfg.append(("bool", 'artist_alpha_nonalpha_ignore', False, "Ignore"))
  cfg.append(("text", 'artist_various', 'Various'))
  cfg.append(("bool", 'artist_sort_tag', True))
  cfg.append(("bool", 'artist_sort_itunes', True))
@@ -100,15 +103,15 @@ def createCfgList():
  cfg.append(("bool", 'track_artist_first', False))
  cfg.append(("text", 'track_artist_separator', " - "))
  cfg.append(("bool", 'track_tag_filename', True))
- cfg.append(("list", 'artist_sort_prefix_list',  pickle.dumps(('A', 'An', 'The'))))
- cfg.append(("list", 'album_date_formats', pickle.dumps(('%Y-%m-%d', '%Y-%m', '%Y'))))
- cfg.append(("dict", 'album_release_status_list', pickle.dumps({'bootleg': 'Bootleg', 'promotion': 'Promo'})))
- cfg.append(("list", 'album_release_type_compilation', pickle.dumps(('album', 'single', 'ep', 'live', 'other'))))
- cfg.append(("list", 'album_release_type_list', pickle.dumps(('Single', 'EP', 'Remix', 'Live'))))
- cfg.append(("list", 'album_compilation_excluded', pickle.dumps(('remix'))))
- cfg.append(("list", 'album_release_type_reverse', pickle.dumps((''))))
- cfg.append(("list", 'album_release_status_reverse', pickle.dumps(('Live'))))
- cfg.append(("list", 'album_catalog_order', pickle.dumps(('catalognumber', 'barcode', 'asin', 'date', 'totaltracks', 'releasetype'))))
+ cfg.append(("list", 'artist_sort_prefix_list',  pickleVar(('A', 'An', 'The'))))
+ cfg.append(("list", 'album_date_formats', pickleVar(('%Y-%m-%d', '%Y-%m', '%Y'))))
+ cfg.append(("dict", 'album_release_status_list', pickleVar({'bootleg': 'Bootleg', 'promotion': 'Promo'})))
+ cfg.append(("list", 'album_release_type_compilation', pickleVar(('album', 'single', 'ep', 'live', 'other'))))
+ cfg.append(("list", 'album_release_type_list', pickleVar(('Single', 'EP', 'Remix', 'Live'))))
+ cfg.append(("list", 'album_compilation_excluded', pickleVar(('remix'))))
+ cfg.append(("list", 'album_release_type_reverse', pickleVar((''))))
+ cfg.append(("list", 'album_release_status_reverse', pickleVar(('Live'))))
+ cfg.append(("list", 'album_catalog_order', pickleVar(('catalognumber', 'barcode', 'asin', 'date', 'totaltracks', 'releasetype'))))
  lists = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lists')
  for infile in os.listdir(lists):
   if os.path.isfile(os.path.join(lists, infile)):
@@ -144,10 +147,19 @@ def readfile(foldername, filename, fileType = "list", encoding = 'utf-8'):
        returndict[split1[1].strip()] = [split2[0].strip(), split2[1].strip()]
    line = f.readline()
   if fileType == "list":
-   return pickle.dumps(returnlist)
+   return pickleVar(returnlist)
   else:
-   return pickle.dumps(returndict)
+   return pickleVar(returndict)
  f.closed
+
+def pickleVar(inVar):
+# return cPickle.dumps(inVar, cPickle.HIGHEST_PROTOCOL)
+# return pickle.dumps(inVar, pickle.HIGHEST_PROTOCOL)
+# return pickle.dumps(inVar, 0)
+ return base64.b64encode(pickle.dumps(inVar))
+
+def unpickleVar(inString):
+ return pickle.loads(base64.b64decode(inString))
 
 def replaceInvalidChars(dirpath, chars):
  filepathname = list()
@@ -160,6 +172,31 @@ def replaceInvalidChars(dirpath, chars):
    dir = dir[:-3] + u'\u2026'
   filepathname.append(dir.rstrip(". ").strip(" "))
  return filepathname
+
+def getAlphaNew(text, artist_alpha_number, artist_alpha_nonalpha_ignore, artist_alpha_unicode_convert, artist_alpha_upper):
+ if text:
+  for initial in text:
+   unicodeInitial = unicodedata.normalize('NFKD', initial)[0:1]
+   if artist_alpha_unicode_convert:
+    initial = unicodeInitial
+   if initial.isalnum():
+    if initial.isdigit():
+     if artist_alpha_number:
+      return artist_alpha_number
+     return initial
+    elif not unicodeInitial.isalpha():
+     if artist_alpha_number:
+      return artist_alpha_number
+     else:
+      return initial
+    else: #if initial.isalpha():
+     if artist_alpha_upper:
+      return initial.upper()
+   elif not artist_alpha_unicode_ignore:
+    pass
+  if artist_alpha_number:
+   return artist_alpha_number
+  return text[0]
 
 def getAlpha(text, folderName):
  if text:
@@ -201,17 +238,17 @@ def isCompilation(release, albumartist, releasetype, various, album_compilation_
 
 def createAlbumSuffix(releasestatus, releasetype, album, config):
  suffixlist = list()
- album_release_status_list = pickle.loads(config['album_release_status_list'])
+ album_release_status_list = unpickleVar(config['album_release_status_list'])
  for status in album_release_status_list:
   if releasestatus.lower() == status.lower():
    if not status.lower() in album.lower():
     suffixlist.append(album_release_status_list[status])
- for albumtype in pickle.loads(config['album_release_type_list']):
+ for albumtype in unpickleVar(config['album_release_type_list']):
   if releasetype.lower() == albumtype.lower():
    if not albumtype.lower() in album.lower():
     suffixlist.append(albumtype)
  if len(suffixlist) > 1:
-  if suffixlist[0] in pickle.loads(config['album_release_status_reverse']) or suffixlist[1] in pickle.loads(config['album_release_type_reverse']):
+  if suffixlist[0] in unpickleVar(config['album_release_status_reverse']) or suffixlist[1] in unpickleVar(config['album_release_type_reverse']):
    suffixlist.reverse()
  if len(suffixlist) > 0:
   return config['album_release_prefix'] + ' '.join(suffixlist) + config['album_release_suffix']
@@ -279,14 +316,11 @@ def changePath(albumdetails, albumType, artist_album_to_folder, album_partial_to
 
 def createAlbumTags(tagger, metadata, release, track = False):
  config = tagger.config.setting
- #albumdetails = {'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'group': list(), 'path': list()}
- #albumdetails = checkArtistAliases(checkAlbumAliases(albumdetails, pickle.loads(config['album_group_to_folder']), config['album_groups_separator']), pickle.loads(config['artist_album_to_artist']), pickle.loads(config['artists_to_artist']), pickle.loads(config['artist_to_artist']), pickle.loads(config['artist_to_artist_pseudonym']))
- #albumdetails['compilation'] = isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], config['album_compilation_excluded'], config['album_compilation_threshold'])
- albumdetails = checkArtistAliases(checkAlbumAliases({'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'path': list(), 'compilation': isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], pickle.loads(config['album_compilation_excluded']), config['album_compilation_threshold'])}, pickle.loads(config['album_group_to_folder']), config['album_groups_separator']), pickle.loads(config['artist_album_to_artist']), pickle.loads(config['artists_to_artist']), pickle.loads(config['artist_to_artist']), pickle.loads(config['artist_to_artist_pseudonym']))
+ albumdetails = checkArtistAliases(checkAlbumAliases({'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'path': list(), 'compilation': isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], unpickleVar(config['album_compilation_excluded']), config['album_compilation_threshold'])}, unpickleVar(config['album_group_to_folder']), config['album_groups_separator']), unpickleVar(config['artist_album_to_artist']), unpickleVar(config['artists_to_artist']), unpickleVar(config['artist_to_artist']), unpickleVar(config['artist_to_artist_pseudonym']))
  if not albumdetails['path']:
-  changePath(albumdetails, metadata['releasetype'], pickle.loads(config['artist_album_to_folder']), pickle.loads(config['album_partial_to_folder']), pickle.loads(config['type_to_folder']))
+  changePath(albumdetails, metadata['releasetype'], unpickleVar(config['artist_album_to_folder']), unpickleVar(config['album_partial_to_folder']), unpickleVar(config['type_to_folder']))
  if config['artist_sort_prefix']:
-  albumdetails['artist'] = swapPrefix(albumdetails['artist'], pickle.loads(config['artist_sort_prefix_list']))
+  albumdetails['artist'] = swapPrefix(albumdetails['artist'], unpickleVar(config['artist_sort_prefix_list']))
 
  if albumdetails['path']:
   pass
@@ -305,9 +339,9 @@ def createAlbumTags(tagger, metadata, release, track = False):
    albumdetails['path'].append(albumdetails['artist'])
    if albumdetails['pseudonym']:
     if config['artist_sort_prefix']:
-     albumdetails['pseudonym'] = swapPrefix(albumdetails['pseudonym'], pickle.loads(config['artist_sort_prefix_list']))
+     albumdetails['pseudonym'] = swapPrefix(albumdetails['pseudonym'], unpickleVar(config['artist_sort_prefix_list']))
     albumdetails['path'].append(albumdetails['pseudonym'])
- albumDate = getAlbumDate((metadata["originaldate"], metadata["date"], metadata["album"].split(":")[0]), pickle.loads(config['album_date_formats']))
+ albumDate = getAlbumDate((metadata["originaldate"], metadata["date"], metadata["album"].split(":")[0]), unpickleVar(config['album_date_formats']))
  albumYear = ""
  if config['album_date_folder'] and albumDate:
   albumYear = config['album_date_prefix'] + time.strftime(config['album_date_format'], albumDate) + config['album_date_suffix']
@@ -358,9 +392,9 @@ def createTrackTags(tagger, metadata, release, track = False):
     trackdetails['filename'] = metadata["artist"] + config['track_artist_separator'] + trackdetails['filename']
    else:
     trackdetails['filename'] = trackdetails['filename'] + config['track_artist_separator'] + metadata["artist"]
-  for old, new in pickle.loads(config['chars_to_chars']).iteritems():
+  for old, new in unpickleVar(config['chars_to_chars']).iteritems():
    trackdetails['filename'] = trackdetails['filename'].replace(old, new[0])
- trackdetails['path'] = replaceInvalidChars(trackdetails['path'], pickle.loads(config['chars_to_chars']))
+ trackdetails['path'] = replaceInvalidChars(trackdetails['path'], unpickleVar(config['chars_to_chars']))
  index = 0
  for namepart in reversed(trackdetails['path']):
   metadata['dir' + str(index)] = namepart
@@ -420,40 +454,47 @@ class abetterpathoptionspage(OptionsPage):
 
  def load(self):
   cfg = createCfgList()
+  varTypes = {'bool': 'setChecked', 'int': 'setValue', 'text': 'setText'}
   for option in cfg:
-   if hasattr(self.ui, option[1]):
-    if option[0] == 'bool':
-     getattr(self.ui, option[1]).setChecked(self.config.setting[option[1]])
-    elif option[0] == 'int':
-     getattr(self.ui, option[1]).setValue(self.config.setting[option[1]])
-    elif option[0] == 'text':
-     getattr(self.ui, option[1]).setText(self.config.setting[option[1]])
-    elif option[0] == 'list':
-     pass
-    elif option[0] == 'dict':
-     pass
-    elif option[0] == 'tuple':
-     pass
-
+   try:
+    getattr(getattr(self.ui, option[1]), varTypes[option[0]])(self.config.setting[option[1]])
+   except:
+    pass
+#   if hasattr(self.ui, option[1]):
+#    if option[0] == 'bool':
+#     getattr(self.ui, option[1]).setChecked(self.config.setting[option[1]])
+#    elif option[0] == 'int':
+#     getattr(self.ui, option[1]).setValue(self.config.setting[option[1]])
+#    elif option[0] == 'text':
+#     getattr(self.ui, option[1]).setText(self.config.setting[option[1]])
+#    elif option[0] == 'list':
+#     pass
+#    elif option[0] == 'dict':
+#     pass
+#    elif option[0] == 'tuple':
+#     pass
 
  def save(self):
   cfg = createCfgList()
-  self.config.setting["artist_alpha"] = False
-  self.config.setting["artist_alpha_number"] = "9"
+  varTypes = {'bool': 'isChecked', 'int': 'value', 'text': 'text'}
   for option in cfg:
-   if hasattr(self.ui, option[1]):
-    if option[0] == 'bool':
-     self.config.setting[option[1]] = getattr(self.ui, option[1]).isChecked()
-    elif option[0] == 'text':
-     self.config.setting[option[1]] = getattr(self.ui, option[1]).text()
-    elif option[0] == 'int':
-     self.config.setting[option[1]] = getattr(self.ui, option[1]).value()
-    elif option[0] == 'list':
-     pass
-    elif option[0] == 'dict':
-     pass
-    elif option[0] == 'tuple':
-     pass
+   try:
+    self.config.setting[option[1]] = getattr(getattr(self.ui, option[1]), varTypes[option[0]])()
+   except:
+    self.config.setting[option[1]] = option[2]
+#   if hasattr(self.ui, option[1]):
+#    if option[0] == 'bool':
+#     self.config.setting[option[1]] = getattr(self.ui, option[1]).isChecked()
+#    elif option[0] == 'text':
+#     self.config.setting[option[1]] = getattr(self.ui, option[1]).text()
+#    elif option[0] == 'int':
+#     self.config.setting[option[1]] = getattr(self.ui, option[1]).value()
+#    elif option[0] == 'list':
+#     pass
+#    elif option[0] == 'dict':
+#     pass
+#    elif option[0] == 'tuple':
+#     pass
 
 
 

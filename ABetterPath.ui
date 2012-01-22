@@ -34,7 +34,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>191</width>
+       <width>181</width>
        <height>71</height>
       </rect>
      </property>
@@ -145,8 +145,8 @@
     <widget class="QGroupBox" name="VariousArtistsgroupBox">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>0</y>
+       <x>10</x>
+       <y>220</y>
        <width>201</width>
        <height>71</height>
       </rect>
@@ -176,6 +176,48 @@
        </item>
       </layout>
      </widget>
+    </widget>
+    <widget class="QCheckBox" name="checkBox">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>10</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>CheckBox</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>50</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string extracomment="Testing">Test</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>41</y>
+       <width>42</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::UpDownArrows</enum>
+     </property>
+     <property name="specialValueText">
+      <string/>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="optionstab">
