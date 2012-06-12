@@ -1,3 +1,3 @@
-﻿spokenword = Spoken/Spoken Word
+spokenword = Spoken/Spoken Word
 interview = Spoken/Interview
 audiobook = Spoken/Audio Book

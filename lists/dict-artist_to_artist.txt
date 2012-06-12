@@ -1,4 +1,4 @@
-﻿Freeland = Adam Freeland
+Freeland = Adam Freeland
 Cujo = Amon Tobin
 Blue Calx = Aphex Twin
 Bradley Strider = Aphex Twin

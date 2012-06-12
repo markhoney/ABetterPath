@@ -1,4 +1,4 @@
-﻿Ambassadors = Various/Compilation
+Ambassadors = Various/Compilation
 Back to Mine = Various/Compilation
 Blueprint = Various/Compilation
 Channel Z - The Best Of = Various/Compilation

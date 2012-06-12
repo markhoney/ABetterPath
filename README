@@ -5,3 +5,28 @@ Please use the following in Picard for File Naming. This can be found in Picard 
 $unset(%dir0%) $unset(%dir1%) $unset(%dir2%) $unset(%dir3%) $unset(%dir4%) $unset(%dir5%) $unset(%dir6%) $unset(%dir7%) $unset(%dir8%) $unset(%dir9%)
 $unset(%name0%) $unset(%name1%)
 $unset(%filename%)
+
+Create GUI Script
+ http://qt.nokia.com/downloads/qt-creator-binary-for-windows
+ http://www.riverbankcomputing.co.uk/software/pyqt/download
+ C:\ProgramData\Python27\Lib\site-packages\PyQt4\pyuic4.bat BetterPath.ui > ui_options_betterpath.py
+
+Find multi-disc releases that need sorting out in the DB
+ clear; echo; echo; find /mnt/media/Audio -type f -name 01.*\(1\)*; echo;
+ clear; echo; echo; find /mnt/media/Audio -type f -name *\(1\)*; echo;
+ find /mnt/media/Audio -type d -name *\(disc*
+ find /mnt/media/Audio -type d -name *\(bonus*
+ sudo find /mnt/media/Audio -type d -name *\(disc* -exec mv "{}" /mnt/media/Unsorted/Music/Multi-Disc \;
+ sudo find /mnt/media/Audio -type d -name *\(bonus* -exec mv "{}" /mnt/media/Unsorted/Music/Multi-Disc \;
+
+Additional files to move
+ folder.jpg fanart.jpg logo.png cdart.png
+
+Find empty folders
+ find /mnt/media/Audio -type d -empty
+
+Find folder.png and folder.tiff
+ find /mnt/media/Audio -name folder.png
+ find /mnt/media/Audio -name folder.tiff
+
+ http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html

@@ -15,33 +15,8 @@ from picard.mbxml import release_to_metadata
 import traceback
 
 import cPickle, pickle, base64
-import re, os, codecs, time
+import re, os, codecs, time, sys
 import unicodedata
-
-#Create GUI Script
-# http://www.riverbankcomputing.co.uk/software/pyqt/download
-# C:\ProgramData\Python27\Lib\site-packages\PyQt4\pyuic4.bat BetterPath.ui > ui_options_betterpath.py
-
-#Find multi-disc releases that need sorting out in the DB
-# clear; echo; echo; find /mnt/media/Audio -type f -name 01.*\(1\)*; echo;
-# clear; echo; echo; find /mnt/media/Audio -type f -name *\(1\)*; echo;
-# find /mnt/media/Audio -type d -name *\(disc*
-# find /mnt/media/Audio -type d -name *\(bonus*
-# sudo find /mnt/media/Audio -type d -name *\(disc* -exec mv "{}" /mnt/media/Unsorted/Music/Multi-Disc \;
-# sudo find /mnt/media/Audio -type d -name *\(bonus* -exec mv "{}" /mnt/media/Unsorted/Music/Multi-Disc \;
-
-#Additional files to move
-# folder.jpg fanart.jpg logo.png cdart.png
-
-#Find empty folders
-# find /mnt/media/Audio -type d -empty
-
-#Find folder.png and folder.tiff
-# find /mnt/media/Audio -name folder.png
-# find /mnt/media/Audio -name folder.tiff
-
-# http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html
-
 
 
 PLUGIN_NAME = "A Better Path"
@@ -51,10 +26,10 @@ PLUGIN_VERSION = "0.2"
 PLUGIN_API_VERSIONS = ["0.16"]
 
 def createCfgList():
- separator = '\x00'
+ #separator = '\x00'
  cfg = list()
- #cfg.append(("text", 'separator', '\x00'))
- #cfg.append(("text", 'various', "various artists"))
+ cfg.append(("text", 'separator', '\x00'))
+ cfg.append(("text", 'various', "various artists"))
  cfg.append(("bool", 'artist_alpha', True, "Alpha Folder", "Create an alphabetical folder level for the first letter of an artist's name"))
  cfg.append(("text", 'artist_alpha_number', "#", "Number Symbol"))
  cfg.append(("bool", 'artist_alpha_upper', True, "Convert "))
@@ -120,11 +95,15 @@ def createCfgList():
     cfg.append((nameSplit[0], nameSplit[1], readfile(lists, infile, nameSplit[0].lower())))
  return cfg
 
+def splitCSV(csv):
+ returnlist = list()
+ for sect in csv.split(","):
+  returnpath.append(sect.strip())
+ return returnlist
 
 def splitPath(path):
  returnpath = list()
- split = path.replace("\\", "/").split("/")
- for sect in split:
+ for sect in path.replace("\\", "/").split("/"):
   returnpath.append(sect.strip())
  return returnpath
 
@@ -134,17 +113,18 @@ def readfile(foldername, filename, fileType = "list", encoding = 'utf-8'):
   returnlist = list()
   returndict = dict()
   while line:
-   if fileType == "list":
-    returnlist.append(line.strip())
-   else:
-    split1 = line.split("=", 1)
-    if len(split1) == 2:
-     if fileType == "dict":
-      returndict[split1[0].strip()] = split1[1].strip()
-     elif fileType == "tuple":
-      split2 = split1[0].split(",", 1)
-      if len(split2) == 2:
-       returndict[split1[1].strip()] = [split2[0].strip(), split2[1].strip()]
+   if line.strip()[0] != "#":
+    if fileType == "list":
+     returnlist.append(line.strip())
+    else:
+     split1 = line.split("=", 1)
+     if len(split1) == 2:
+      if fileType == "dict":
+       returndict[split1[0].strip()] = split1[1].strip()
+      elif fileType == "tuple":
+       split2 = split1[0].split(",", 1)
+       if len(split2) == 2:
+        returndict[split1[1].strip()] = [split2[0].strip(), split2[1].strip()]
    line = f.readline()
   if fileType == "list":
    return pickleVar(returnlist)
@@ -165,7 +145,7 @@ def replaceInvalidChars(dirpath, chars):
  filepathname = list()
  for dir in dirpath:
   for old, new in chars.iteritems():
-   dir = dir.replace(old, new[0])
+   dir = dir.replace(old[0], new[0])
   if dir[0:3] == '...':
    dir = u'\u2026' + dir[3:]
   if dir[-3:] == '...':
@@ -299,32 +279,39 @@ def checkAlbumAliases(albumdetails, album_group_to_folder, separator = ": "):
 def changePath(albumdetails, albumType, artist_album_to_folder, album_partial_to_folder, type_to_folder):
  for newPath, album in artist_album_to_folder.iteritems():
   if (album[0] == albumdetails['originalartist'] or album[0] == albumdetails['artist']) and (album[1] == albumdetails['originalname'] or album[1] == albumdetails['name']):
-   return splitPath(newPath).append(albumdetails['artist'])
+   albumPath = splitPath(newPath)
+   albumPath.append(albumdetails['artist'])
+   return albumPath
+   #return splitPath(newPath).append(albumdetails['artist'])
  for albumPart in album_partial_to_folder:
   if albumPart in albumdetails['originalname'] or albumPart in albumdetails['name']:
-   return splitPath(album_partial_to_folder[albumPart]).append(albumdetails['artist'])
+   albumPath = splitPath(album_partial_to_folder[albumPart])
+   albumPath.append(albumdetails['artist'])
+   return albumPath
+   #return splitPath(album_partial_to_folder[albumPart]).append(albumdetails['artist'])
+ #sys.stderr.write(albumType.lower() + "\n")
+ #for type, folder in type_to_folder.iteritems():
+ # sys.stderr.write(type + " => " + folder + "\n")
  if albumType.lower() in type_to_folder:
-  return splitPath(type_to_folder[albumType.lower()]).append(albumdetails['artist'])
+  albumPath = splitPath(type_to_folder[albumType.lower()])
+  albumPath.append(albumdetails['artist'])
+  return albumPath
+  #return splitPath(type_to_folder[albumType.lower()]).append(albumdetails['artist'])
  return list()
 
-
-
-
-
-
-
+class album:
+ def __init__(self):
+  self.name = ""
 
 def createAlbumTags(tagger, metadata, release, track = False):
  config = tagger.config.setting
  albumdetails = checkArtistAliases(checkAlbumAliases({'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'path': list(), 'compilation': isCompilation(release, metadata["albumartist"], metadata["releasetype"], config['various'], unpickleVar(config['album_compilation_excluded']), config['album_compilation_threshold'])}, unpickleVar(config['album_group_to_folder']), config['album_groups_separator']), unpickleVar(config['artist_album_to_artist']), unpickleVar(config['artists_to_artist']), unpickleVar(config['artist_to_artist']), unpickleVar(config['artist_to_artist_pseudonym']))
  if not albumdetails['path']:
-  changePath(albumdetails, metadata['releasetype'], unpickleVar(config['artist_album_to_folder']), unpickleVar(config['album_partial_to_folder']), unpickleVar(config['type_to_folder']))
+  albumdetails['path'] = changePath(albumdetails, metadata['releasetype'], unpickleVar(config['artist_album_to_folder']), unpickleVar(config['album_partial_to_folder']), unpickleVar(config['type_to_folder']))
  if config['artist_sort_prefix']:
   albumdetails['artist'] = swapPrefix(albumdetails['artist'], unpickleVar(config['artist_sort_prefix_list']))
 
- if albumdetails['path']:
-  pass
- else:
+ if not albumdetails['path']:
   albumdetails['path'] = ["Music"]
   if albumdetails['compilation']:
    albumdetails['path'].append(config['artist_various'])
@@ -349,7 +336,7 @@ def createAlbumTags(tagger, metadata, release, track = False):
  albumdetails['path'].append(albumYear + albumdetails['name'] + albumSuffix)
  if not config['artist_sort_tag']:
   metadata["albumartistsort"] = albumdetails['artist']
- #metadata['filename'] = os.path.join(*filepathname)
+ #metadata['filename'] = config['separator'].join(albumdetails['path'])
  metadata['filename'] = '\x00'.join(albumdetails['path'])
  if albumdetails['compilation']:
   metadata['compilation'] = "1" # Mark the release as a compilation
@@ -362,6 +349,7 @@ def createAlbumTags(tagger, metadata, release, track = False):
 def createTrackTags(tagger, metadata, release, track = False):
  config = tagger.config.setting
  trackdetails = dict()
+ #trackdetails['path'] = metadata['filename'].split(config['separator'])
  trackdetails['path'] = metadata['filename'].split('\x00')
  trackdetails['compilation'] = False
  if metadata["compilation"]:
@@ -393,7 +381,8 @@ def createTrackTags(tagger, metadata, release, track = False):
    else:
     trackdetails['filename'] = trackdetails['filename'] + config['track_artist_separator'] + metadata["artist"]
   for old, new in unpickleVar(config['chars_to_chars']).iteritems():
-   trackdetails['filename'] = trackdetails['filename'].replace(old, new[0])
+   trackdetails['filename'] = trackdetails['filename'].replace(old[0], new[0])
+   #sys.stderr.write(old + "\n")
  trackdetails['path'] = replaceInvalidChars(trackdetails['path'], unpickleVar(config['chars_to_chars']))
  index = 0
  for namepart in reversed(trackdetails['path']):
@@ -433,8 +422,6 @@ class abetterpathoptionspage(OptionsPage):
 
  cfg = createCfgList()
  options = list()
- options.append(TextOption("setting", 'separator', '\x00'))
- options.append(TextOption("setting", 'various', "various artists"))
  for option in cfg:
   if option[0] == 'bool':
    options.append(BoolOption("setting", option[1], option[2]))
@@ -457,44 +444,34 @@ class abetterpathoptionspage(OptionsPage):
   varTypes = {'bool': 'setChecked', 'int': 'setValue', 'text': 'setText'}
   for option in cfg:
    try:
-    getattr(getattr(self.ui, option[1]), varTypes[option[0]])(self.config.setting[option[1]])
+    if option[0] in varTypes:
+     getattr(getattr(self.ui, option[1]), varTypes[option[0]])(self.config.setting[option[1]])
+    elif option[0] == 'list':
+     getattr(self.ui, option[1]).setText(", ".join(unpickleVar(self.config.setting[option[1]])))
+    elif option[0] == 'dict':
+     pass
+    elif option[0] == 'tuple':
+     pass
    except:
-    pass
-#   if hasattr(self.ui, option[1]):
-#    if option[0] == 'bool':
-#     getattr(self.ui, option[1]).setChecked(self.config.setting[option[1]])
-#    elif option[0] == 'int':
-#     getattr(self.ui, option[1]).setValue(self.config.setting[option[1]])
-#    elif option[0] == 'text':
-#     getattr(self.ui, option[1]).setText(self.config.setting[option[1]])
-#    elif option[0] == 'list':
-#     pass
-#    elif option[0] == 'dict':
-#     pass
-#    elif option[0] == 'tuple':
-#     pass
+    pass #getattr(getattr(self.ui, option[1]), varTypes[option[0]])(self.config.setting[option[2]])
+
 
  def save(self):
   cfg = createCfgList()
   varTypes = {'bool': 'isChecked', 'int': 'value', 'text': 'text'}
   for option in cfg:
    try:
-    self.config.setting[option[1]] = getattr(getattr(self.ui, option[1]), varTypes[option[0]])()
+    if option[0] in varTypes:
+     self.config.setting[option[1]] = getattr(getattr(self.ui, option[1]), varTypes[option[0]])()
+    elif option[0] == 'list':
+     self.config.setting[option[1]] = pickleVar(splitCSV(getattr(self.ui, option[1]).text()))
+    elif option[0] == 'dict':
+     pass
+    elif option[0] == 'tuple':
+     pass
    except:
     self.config.setting[option[1]] = option[2]
-#   if hasattr(self.ui, option[1]):
-#    if option[0] == 'bool':
-#     self.config.setting[option[1]] = getattr(self.ui, option[1]).isChecked()
-#    elif option[0] == 'text':
-#     self.config.setting[option[1]] = getattr(self.ui, option[1]).text()
-#    elif option[0] == 'int':
-#     self.config.setting[option[1]] = getattr(self.ui, option[1]).value()
-#    elif option[0] == 'list':
-#     pass
-#    elif option[0] == 'dict':
-#     pass
-#    elif option[0] == 'tuple':
-#     pass
+
 
 
 
