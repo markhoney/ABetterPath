@@ -30,3 +30,24 @@ Find folder.png and folder.tiff
  find /mnt/media/Audio -name folder.tiff
 
  http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html
+
+
+$set(%_dir0%, %dir0%)
+$unset(%dir0%) $unset(%dir1%) $unset(%dir2%) $unset(%dir3%) $unset(%dir4%) $unset(%dir5%) $unset(%dir6%) $unset(%dir7%) $unset(%dir8%) $unset(%dir9%)
+$unset(%filename%)
+$set(%_name0%, %name0%)
+$set(%_name1%, %name1%)
+$unset(%name0%)
+$unset(%name1%)
+ 
+ 
+%dir9%/%dir8%/%dir7%/%dir6%/%dir5%/%dir4%/%dir3%/%dir2%/%dir1%/%dir0%/%name1%. %name0%
+$unset(dir0) $unset(dir1) $unset(dir2) $unset(dir3) $unset(dir4) $unset(dir5) $unset(dir6) $unset(dir7) $unset(dir8) $unset(dir9) $unset(name0) $unset(name1) $unset(filename)
+
+
+$set(_dir0, %dir0%) $set(_dir1, %dir1%) $set(_dir2, %dir2%) $set(_dir3, %dir3%) $set(_dir4, %dir4%) $set(_dir5, %dir5%) $set(_dir6, %dir6%) $set(_dir7, %dir7%) $set(_dir8, %dir8%) $set(_dir9, %dir9%) $set(_name0, %name0%) $set(_name1, %name1%) $set(_filename, %filename%)
+$unset(dir0) $unset(dir1) $unset(dir2) $unset(dir3) $unset(dir4) $unset(dir5) $unset(dir6) $unset(dir7) $unset(dir8) $unset(dir9) $unset(name0) $unset(name1) $unset(filename)
+
+
+
+%_dir9%/%_dir8%/%_dir7%/%_dir6%/%_dir5%/%_dir4%/%_dir3%/%_dir2%/%_dir1%/%_dir0%/%_name1%. %_name0%
