@@ -17,6 +17,14 @@ from picard.mbxml import release_to_metadata
 import re, os, codecs, time, sys
 import unicodedata
 
+fmhost = 'ws.audioscrobbler.com'
+fmport = 80
+import traceback
+from picard.util import partial
+from picard.webservice import REQUEST_DELAY
+REQUEST_DELAY[(fmhost, fmport)] = 200
+
+
 PLUGIN_NAME = "A Better Path"
 PLUGIN_AUTHOR = 'Mark Honeychurch'
 PLUGIN_DESCRIPTION = 'Makes some extra tags to help with sorting out my music collection exactly how I like it!'
@@ -24,11 +32,11 @@ PLUGIN_VERSION = "0.2"
 PLUGIN_API_VERSIONS = ["0.16"]
 
 class addalbum():
- def __init__(self, tagger, metadata, release):
+ def __init__(self, album, metadata, release):
   self.name = ""
   self.config = cfg()
-  self.cfg = self.config.createcfg(tagger.config.setting)
-  #self.tagger = tagger
+  self.cfg = self.config.createcfg(album.config.setting)
+  self.album = album
   self.metadata = metadata
   self.release = release
   self.albumdetails = {'name': metadata["album"], 'artist': metadata["albumartist"], 'originalname': metadata["album"], 'originalartist': metadata["albumartist"], 'pseudonym': '', 'type': '', 'path': list(), 'compilation': self._compilation(release, metadata["albumartist"], metadata["releasetype"])}
@@ -63,6 +71,7 @@ class addalbum():
   self.albumdetails['path'].append(albumYear + self.albumdetails['name'] + albumSuffix)
   if not self.cfg['artist_sort_tag']:
    metadata["albumartistsort"] = self.albumdetails['artist']
+  self._genre()
   #metadata['filename'] = self.cfg['separator'].join(self.albumdetails['path'])
   metadata['~filename'] = '\x00'.join(self.albumdetails['path'])
   if self.albumdetails['compilation']:
@@ -190,35 +199,35 @@ class addalbum():
     return self.cfg['artist_alpha_number']
    return self.albumdetails['artist'][0]
 
- def _genres():
+ def _genreold(self):
   from pylast import pylast
   lastfm = pylast.LastFMNetwork(api_key = "9407ca2b8eaa65632a283563ddd56792", api_secret = "2b5494bbe88d9f3cb473e2981e325be8", username = "", password_hash = "")
   try:
-   artistinfo = lastfm.get_artist_by_mbid(self.metadata['musicbrainz_albumartistid'])
-   albuminfo = lastfm.get_album_by_mbid(self.metadata['musicbrainz_albumid'])
+   info = lastfm.get_album_by_mbid(self.metadata['musicbrainz_albumid'])
   except:
-   pass
-  else:
    try:
-    possibleGenres = artistinfo.get_top_tags(limit = 10)
+    info = lastfm.get_artist_by_mbid(self.metadata['musicbrainz_albumartistid'])
+   except:
+    pass
+  if info:
+   try:
+    possibleGenres = info.get_top_tags(limit = 10)
    except:
     pass
    else:
-    genre = "" 
+    genre = ""
     for genres in possibleGenres:
-     genreName = genres.item.name.title()
-     if (genreName in matchGenres):
-      if (genre == ""):
+     if (genre == ""):
+      genreName = genres.item.name.title()
+      if (genreName in self.cfg['list-genres']):
        genre = genreName
     if (genre == ""):
      try:
       genre = possibleGenres[0].item.name.title()
      except:
       pass
-    artistGenres[track["artist"]] = genre
-  if (track["artist"] in artistGenres):
-   track["genre"] = artistGenres[track["artist"]]
- 
+   return genre
+
 # metadata["mood"]
 # metadata["genre"]
 # metadata['~id3:WOAR'] # Artist Webpage
@@ -226,8 +235,26 @@ class addalbum():
 # metadata['~id3:USLT'] # Unsynced Lyrics
 # metadata['~id3:TIT3'] # Subtitle
 
-
-
+ def _genre(self):
+  #from picard.util import partial
+  from picard.webservice import REQUEST_DELAY
+  fmhost = 'ws.audioscrobbler.com'
+  fmport = 80
+  fmmethod = "/2.0/?method="
+  fmid = "&mbid="
+  fmapi = "&api_key=9407ca2b8eaa65632a283563ddd56792"
+  fmartist = "artist.gettoptags"
+  fmalbum = "album.gettoptags"
+  fmartistpath = fmmethod + fmartist + fmid + self.metadata['musicbrainz_albumartistid'] + fmapi
+  fmalbumpath = fmmethod + fmalbum + fmid + self.metadata['musicbrainz_albumid'] + fmapi
+  REQUEST_DELAY[(fmhost, fmport)] = 200
+  self.album.tagger.xmlws.get(fmhost, fmport, fmalbumpath, partial(self._getgenres))
+  #self.album.tagger.xmlws.get(fmhost, fmport, fmpath, partial(self._getgenres))
+  
+ def _getgenres(self, data, http, error):
+  import pprint
+  sys.stderr.write(pprint.pformat(data))
+  self.metadata["genre"] = data.lfm[0].toptags[0].tag[0].name
 
 class addtrack():
  def __init__(self, tagger, metadata, release, track):
@@ -275,7 +302,7 @@ class addtrack():
    index += 1
   metadata['~name1'] = tracknumber
   metadata['~name0'] = self.trackdetails['filename']
-  self.trackdetails['path'].append(tracknumber + self.cfg['track_tracknumber_separator'] + self.trackdetails['filename'] + '.mp3')
+  self.trackdetails['path'].append(tracknumber + self.cfg['track_tracknumber_separator'] + self.trackdetails['filename'] + '.' + metadata['~extension'])
   #metadata['filename'] = os.path.join(*self.trackdetails['path'])
   metadata['~filename'] = "/".join(self.trackdetails['path'])
   if self.cfg['track_tag_filename']:

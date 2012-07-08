@@ -5,7 +5,7 @@ Please use the following in Picard for File Naming. This can be found in Picard 
 Create GUI Script
  http://qt.nokia.com/downloads/qt-creator-binary-for-windows
  http://www.riverbankcomputing.co.uk/software/pyqt/download
- C:\ProgramData\Python27\Lib\site-packages\PyQt4\pyuic4.bat BetterPath.ui > ui_options_betterpath.py
+ C:\ProgramFiles\Python27\Lib\site-packages\PyQt4\pyuic4.bat BetterPath.ui > ui_options_betterpath.py
 
 Find multi-disc releases that need sorting out in the DB
  clear; echo; echo; find /mnt/media/Audio -type f -name 01.*\(1\)*; echo;
