@@ -1,0 +1,5739 @@
+<MusicGenres xmlns="com.rovicorp.metadataservice" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <status>ok</status>
+  <code>200</code>
+  <messages i:nil="true" />
+  <build>1.10.0.7</build>
+  <parameters>
+    <apiKey>3qjjbgkjms3nc9jcnr2xt5r8</apiKey>
+    <id i:nil="true" />
+    <include>all</include>
+    <format>xml</format>
+  </parameters>
+  <view>
+    <total>21</total>
+  </view>
+  <serverName>TUL1CSPW03</serverName>
+  <startTime>2012-07-14T09:19:24.4027890Z</startTime>
+  <endTime>2012-07-14T09:19:24.4652982Z</endTime>
+  <duration>62</duration>
+  <genres>
+    <Genre>
+      <id>MA0000012170</id>
+      <name>Avant-Garde</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012238</id>
+          <name>Computer Music</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011891</id>
+          <name>Conceptual Art</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012269</id>
+          <name>Creative Orchestra</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012210</id>
+          <name>Experimental Electronic</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012076</id>
+          <name>Improvisation</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012082</id>
+          <name>Microtonal</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012315</id>
+          <name>Minimalism</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012251</id>
+          <name>Mixed Media</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012083</id>
+          <name>Modern Composition</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012155</id>
+          <name>Musique Actuelle</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012319</id>
+          <name>Musique Concrète</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012085</id>
+          <name>Noise</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012358</id>
+          <name>Post-Minimalism</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012126</id>
+          <name>Process-Generated</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012158</id>
+          <name>Radio Works</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011958</id>
+          <name>Sound Art</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011959</id>
+          <name>Sound Collage</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012289</id>
+          <name>Sound Sculpture</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012162</id>
+          <name>Structured Improvisation</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012196</id>
+          <name>Tape Music</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002467</id>
+      <name>Blues</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012058</id>
+          <name>Acoustic Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011814</id>
+          <name>Blues Gospel</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012232</id>
+          <name>Blues Revival</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002517</id>
+          <name>Classic Blues Vocals</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004403</id>
+          <name>Classic Female Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002960</id>
+          <name>Contemporary Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002533</id>
+          <name>Country Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012302</id>
+          <name>Dirty Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011898</id>
+          <name>Early American Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004405</id>
+          <name>Electric Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012304</id>
+          <name>Electric Country Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011822</id>
+          <name>Electric Harmonica Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012042</id>
+          <name>Folk-Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002404</id>
+          <name>Harmonica Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011940</id>
+          <name>Juke Joint Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002678</id>
+          <name>Jump Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011864</id>
+          <name>Minstrel</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012184</id>
+          <name>Modern Acoustic Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002730</id>
+          <name>Modern Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011944</id>
+          <name>Modern Electric Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002405</id>
+          <name>Piano Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002794</id>
+          <name>Pre-War Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011871</id>
+          <name>Pre-War Country Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012359</id>
+          <name>Pre-War Gospel Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002821</id>
+          <name>Regional Blues</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012059</id>
+              <name>Acoustic Chicago Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011879</id>
+              <name>Acoustic Louisiana Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012060</id>
+              <name>Acoustic Memphis Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011966</id>
+              <name>Acoustic New Orleans Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011999</id>
+              <name>Acoustic Texas Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002482</id>
+              <name>British Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002504</id>
+              <name>Chicago Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002549</id>
+              <name>Delta Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012039</id>
+              <name>Detroit Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011899</id>
+              <name>East Coast Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012241</id>
+              <name>Electric Chicago Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011900</id>
+              <name>Electric Delta Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012173</id>
+              <name>Electric Memphis Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012340</id>
+              <name>Electric Texas Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012017</id>
+              <name>Louisiana Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012183</id>
+              <name>Memphis Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011988</id>
+              <name>Modern Delta Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012316</id>
+              <name>Modern Electric Chicago Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012354</id>
+              <name>Modern Electric Texas Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012283</id>
+              <name>New Orleans Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012219</id>
+              <name>New York Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011990</id>
+              <name>Piedmont Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012094</id>
+              <name>St. Louis Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002884</id>
+              <name>Swamp Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002899</id>
+              <name>Texas Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012030</id>
+              <name>West Coast Blues</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004404</id>
+          <name>Slide Guitar Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012093</id>
+          <name>Songster</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004996</id>
+          <name>Soul-Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004995</id>
+          <name>Traditional Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012096</id>
+          <name>Urban Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011921</id>
+          <name>Vaudeville Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012293</id>
+          <name>Work Songs</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002944</id>
+      <name>Children's</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012204</id>
+          <name>Children's Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012171</id>
+          <name>Children's Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011889</id>
+          <name>Children's Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004410</id>
+          <name>Children's Songwriters</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004409</id>
+          <name>Educational</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012072</id>
+          <name>Fairy Tales</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004408</id>
+          <name>Lullabies</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012087</id>
+          <name>Nursery Rhymes</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004407</id>
+          <name>Sing-Alongs</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004406</id>
+          <name>Stories</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002521</id>
+      <name>Classical</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000004930</id>
+          <name>Avant-Garde Music</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004505</id>
+          <name>Ballet</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004501</id>
+          <name>Band Music</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002711</id>
+              <name>Marches</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004500</id>
+          <name>Chamber Music</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004509</id>
+          <name>Choral</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004504</id>
+          <name>Classical Crossover</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012338</id>
+          <name>Concerto</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004507</id>
+          <name>Electronic/Computer Music</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012306</id>
+          <name>Film Score</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011828</id>
+          <name>Keyboard</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012215</id>
+          <name>Miscellaneous (Classical)</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004512</id>
+          <name>Opera</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004499</id>
+          <name>Orchestral</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004506</id>
+          <name>Show/Musical</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012291</id>
+          <name>Symphony</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004520</id>
+          <name>Vocal Music</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000004433</id>
+      <name>Comedy/Spoken</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000002525</id>
+          <name>Comedy</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012065</id>
+              <name>Blue Humor</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012110</id>
+              <name>Ethnic Comedy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011934</id>
+              <name>Gay Comedy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011945</id>
+              <name>Morning Radio</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002736</id>
+              <name>Music Comedy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012086</id>
+              <name>Novelty</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012088</id>
+              <name>Observational Humor</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012157</id>
+              <name>Political Comedy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011835</id>
+              <name>Prank Calls</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011993</id>
+              <name>Satire</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012194</id>
+              <name>Shock Jock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004412</id>
+              <name>Sketch Comedy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012366</id>
+              <name>Song Parody</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002876</id>
+              <name>Spoken Comedy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004411</id>
+              <name>Standup Comedy</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002875</id>
+          <name>Spoken Word</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012331</id>
+              <name>Beat Poetry</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012006</id>
+              <name>Documentary</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011896</id>
+              <name>Drama</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011932</id>
+              <name>Erotica</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012273</id>
+              <name>Fantasy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011858</id>
+              <name>Instructional</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002662</id>
+              <name>Interview</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011952</id>
+              <name>Poetry</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012363</id>
+              <name>Radio Shows</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004413</id>
+              <name>Self-Help &amp; Development</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004414</id>
+              <name>Speeches</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002532</id>
+      <name>Country</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000004415</id>
+          <name>Americana</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002443</id>
+          <name>Bakersfield Sound</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002466</id>
+          <name>Bluegrass</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011818</id>
+              <name>Contemporary Bluegrass</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012360</id>
+              <name>Progressive Bluegrass</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011963</id>
+              <name>Traditional Bluegrass</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012138</id>
+          <name>Close Harmony</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002946</id>
+          <name>Contemporary Country</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012188</id>
+              <name>Neo-Traditionalist Country</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011949</id>
+              <name>New Traditionalist</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011894</id>
+          <name>Country Boogie</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012239</id>
+          <name>Country Comedy</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012141</id>
+          <name>Country-Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004416</id>
+          <name>Country-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002538</id>
+          <name>Cowboy</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002561</id>
+          <name>Early Country</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002648</id>
+          <name>Honky Tonk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011979</id>
+          <name>Instrumental Country</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012351</id>
+          <name>Jug Band</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002739</id>
+          <name>Nashville Sound/Countrypolitan</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012123</id>
+          <name>Old-Timey</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002949</id>
+          <name>Outlaw Country</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002796</id>
+          <name>Progressive Country</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012323</id>
+          <name>Rodeo</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011873</id>
+          <name>Square Dance</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004474</id>
+          <name>Traditional Country</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012199</id>
+          <name>Truck Driving Country</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012202</id>
+          <name>Urban Cowboy</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002935</id>
+          <name>Western Swing</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012227</id>
+          <name>Western Swing Revival</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012228</id>
+          <name>Yodeling</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002567</id>
+      <name>Easy Listening</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000002446</id>
+          <name>Ballroom Dance</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012236</id>
+          <name>Classical Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012240</id>
+          <name>Easy Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002581</id>
+          <name>Exotica</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002629</id>
+          <name>Guitar/Easy Listening</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002659</id>
+          <name>Instrumental Collections</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012247</id>
+          <name>Instrumental Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012079</id>
+          <name>Lounge</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012317</id>
+          <name>Mood Music</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002765</id>
+          <name>Orchestral/Easy Listening</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002766</id>
+          <name>Organ/Easy Listening</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002771</id>
+          <name>Panflute/Easy Listening</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002777</id>
+          <name>Piano/Easy Listening</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002780</id>
+          <name>Polka</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011960</id>
+          <name>Space Age Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002908</id>
+          <name>Trumpet/Easy Listening</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012168</id>
+          <name>Waltz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002930</id>
+          <name>Wedding Collections</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002572</id>
+      <name>Electronic</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000002414</id>
+          <name>Acid Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002424</id>
+          <name>Ambient</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011810</id>
+          <name>Ambient Breakbeat</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011811</id>
+          <name>Ambient Dub</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012031</id>
+          <name>Ambient House</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004476</id>
+          <name>Baile Funk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004997</id>
+          <name>Big Beat</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004991</id>
+          <name>Breakcore</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004475</id>
+          <name>Broken Beat</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012235</id>
+          <name>Chiptunes</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002544</id>
+          <name>Club/Dance</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011923</id>
+              <name>Bass Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000005013</id>
+              <name>Euro-Dance</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012074</id>
+              <name>Hi-NRG</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011890</id>
+          <name>Clubjazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011972</id>
+          <name>Dark Ambient</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012007</id>
+          <name>Downbeat</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004999</id>
+          <name>Downtempo</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002571</id>
+          <name>Electro</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012174</id>
+          <name>Electro-Acoustic</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012175</id>
+          <name>Electro-Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002574</id>
+          <name>Electronica</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012112</id>
+          <name>Experimental Ambient</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011974</id>
+          <name>Experimental Dub</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012209</id>
+          <name>Experimental Electro</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004998</id>
+          <name>Funky Breaks</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012308</id>
+          <name>Garage</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000004479</id>
+              <name>2-Step/British Garage</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004465</id>
+              <name>Dubstep</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004464</id>
+              <name>Garage Rap/Grime</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011854</id>
+          <name>Glitch</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002651</id>
+          <name>House</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000005001</id>
+              <name>Acid House</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002507</id>
+              <name>Chicago House</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012013</id>
+              <name>Jazz-House</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012312</id>
+              <name>Left-Field House</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012279</id>
+              <name>Microhouse</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000005002</id>
+              <name>Progressive House</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012164</id>
+              <name>Tribal House</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004477</id>
+          <name>IDM</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012348</id>
+          <name>Illbient</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012077</id>
+          <name>Industrial Dance</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002557</id>
+          <name>Jungle/Drum'n'Bass</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012008</id>
+              <name>Drill'n'bass</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012176</id>
+              <name>Experimental Jungle</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012044</id>
+              <name>Industrial Drum'n'Bass</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012280</id>
+          <name>Microsound</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011910</id>
+          <name>Neo-Electro</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011831</id>
+          <name>Newbeat</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012021</id>
+          <name>Nu Breaks</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004480</id>
+          <name>Rave</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002893</id>
+          <name>Techno</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011998</id>
+              <name>Acid Techno</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012032</id>
+              <name>Ambient Techno</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002551</id>
+              <name>Detroit Techno</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012208</id>
+              <name>Electro-Techno</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012244</id>
+              <name>Experimental Techno</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012147</id>
+              <name>Hardcore Techno</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004478</id>
+              <name>Minimal Techno</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000005003</id>
+              <name>Tech-House</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012258</id>
+              <name>Techno Bass</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011919</id>
+              <name>Techno-Dub</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002903</id>
+          <name>Trance</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011977</id>
+              <name>Goa Trance</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011914</id>
+              <name>Progressive Trance</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002906</id>
+          <name>Trip-Hop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002592</id>
+      <name>Folk</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000011878</id>
+          <name>Acid Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012099</id>
+          <name>Alternative Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004417</id>
+          <name>Anti-Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002959</id>
+          <name>British Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012267</id>
+          <name>Contemporary Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012041</id>
+          <name>Field Recordings</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004420</id>
+          <name>Folk Revival</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005011</id>
+          <name>Folk-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012043</id>
+          <name>Folksongs</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012282</id>
+          <name>Neo-Traditional Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011947</id>
+          <name>New Acoustic</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012253</id>
+          <name>Political Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012361</id>
+          <name>Progressive Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004418</id>
+          <name>Protest Songs</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005006</id>
+          <name>Sea Shanties</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002880</id>
+          <name>String Bands</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004419</id>
+          <name>Traditional Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004421</id>
+          <name>Urban Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002823</id>
+          <name>Work Song</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000012075</id>
+      <name>Holiday</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012332</id>
+          <name>Carols</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011929</id>
+          <name>Christmas</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012071</id>
+          <name>Easter</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011825</id>
+          <name>Halloween</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012148</id>
+          <name>Holidays</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012325</id>
+          <name>Thanksgiving</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002660</id>
+      <name>International</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000002416</id>
+          <name>African Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011880</id>
+              <name>African Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004495</id>
+              <name>Afro-beat</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011881</id>
+              <name>Afro-Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002564</id>
+              <name>Central African</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004497</id>
+              <name>Desert Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002594</id>
+              <name>East African</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002637</id>
+              <name>Highlife</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002646</id>
+              <name>Juju</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011862</id>
+              <name>Makossa</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012278</id>
+              <name>Mbira</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012313</id>
+              <name>Mbuti Choral</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002756</id>
+              <name>North African</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012049</id>
+              <name>Pygmy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002788</id>
+              <name>Southern African</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002813</id>
+              <name>West African</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002432</id>
+          <name>Asian Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011847</id>
+              <name>Asian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011962</id>
+              <name>Throat Singing</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002477</id>
+          <name>Brazilian Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002491</id>
+              <name>Afoxe</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002512</id>
+              <name>Axe</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002548</id>
+              <name>Bossa Nova</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011848</id>
+              <name>Brazilian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011888</id>
+              <name>Brazilian Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011970</id>
+              <name>Carnival</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002595</id>
+              <name>Forro</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002703</id>
+              <name>MPB</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002842</id>
+              <name>Samba</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002805</id>
+              <name>Tropicalia</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002499</id>
+          <name>Caribbean Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002442</id>
+              <name>Bahamian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012102</id>
+              <name>Belair</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011817</id>
+              <name>Cadence</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002494</id>
+              <name>Calypso</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011928</id>
+              <name>Chouval Bwa</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002579</id>
+              <name>Compas</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002620</id>
+              <name>French Antilles</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002633</id>
+              <name>Guadeloupe</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012345</id>
+              <name>Gwo Ka</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002632</id>
+              <name>Haitian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002671</id>
+              <name>Jamaican</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011859</id>
+              <name>Junkanoo</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002714</id>
+              <name>Martinique</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002689</id>
+              <name>Mento</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011869</id>
+              <name>Party Soca</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012050</id>
+              <name>Rapso</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002861</id>
+              <name>Soca</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011917</id>
+              <name>Spouge</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002878</id>
+              <name>Steel Band</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002905</id>
+              <name>Trinidadian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012167</id>
+              <name>Vaudou</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002942</id>
+              <name>Zouk</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002502</id>
+          <name>Celtic</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000004473</id>
+              <name>Breton</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012067</id>
+              <name>Celtic Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012334</id>
+              <name>Celtic Fusion</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012104</id>
+              <name>Celtic Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012299</id>
+              <name>Celtic New Age</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012335</id>
+              <name>Celtic Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011819</id>
+              <name>Contemporary Celtic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002584</id>
+              <name>Country &amp; Irish</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012172</id>
+              <name>Drinking Songs</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002666</id>
+              <name>Irish Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002741</id>
+              <name>Pibroch</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002764</id>
+              <name>Scottish Country Dance</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002848</id>
+              <name>Scottish Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012055</id>
+              <name>Traditional Celtic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011876</id>
+              <name>Traditional Irish Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011844</id>
+              <name>Traditional Scottish Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002931</id>
+              <name>Welsh</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004472</id>
+          <name>Central European Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002500</id>
+              <name>Alpine</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002437</id>
+              <name>Austrian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011812</id>
+              <name>Bava</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002456</id>
+              <name>Bavarian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002542</id>
+              <name>Czech</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002615</id>
+              <name>German</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002652</id>
+              <name>Hungarian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002733</id>
+              <name>Moravian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002779</id>
+              <name>Polish</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002859</id>
+              <name>Slovakian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011845</id>
+              <name>Volksmusik</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002565</id>
+          <name>Central/West Asian Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002430</id>
+              <name>Armenian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011925</id>
+              <name>Armenian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002439</id>
+              <name>Azerbaijani</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002543</id>
+              <name>Dagestani</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002614</id>
+              <name>Georgian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012146</id>
+              <name>Georgian Choir</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002681</id>
+              <name>Kazakhstani</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012318</id>
+              <name>Mugam</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002890</id>
+              <name>Tajik</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002902</id>
+              <name>Tibetan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002912</id>
+              <name>Tuvan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002920</id>
+              <name>Uzbekistani</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012234</id>
+          <name>Chants</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002511</id>
+          <name>Chinese Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011927</id>
+              <name>Chinese Classical</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011875</id>
+              <name>Traditional Chinese</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002580</id>
+          <name>European Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011975</id>
+          <name>Finger-Picked Guitar</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002612</id>
+          <name>Folk Dance</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012113</id>
+          <name>Folklore</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004469</id>
+          <name>Indian Subcontinent Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002514</id>
+              <name>Bangladeshi</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002459</id>
+              <name>Bengali</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002528</id>
+              <name>Bhangra</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002537</id>
+              <name>Bollywood</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012004</id>
+              <name>Carnatic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012145</id>
+              <name>Dhrupad</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011976</id>
+              <name>Giddha</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002655</id>
+              <name>Indian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002638</id>
+              <name>Indian Classical</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012117</id>
+              <name>Indian Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002744</id>
+              <name>Nepalese</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002769</id>
+              <name>Pakistani</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002742</id>
+              <name>Qawwali</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004498</id>
+              <name>Raga</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002657</id>
+          <name>Indonesian Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002444</id>
+              <name>Balinese</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002610</id>
+              <name>Gamelan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011981</id>
+              <name>Jaipongan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002673</id>
+              <name>Javanese</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012352</id>
+              <name>Kecak</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011985</id>
+              <name>Macapat Poetry</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002882</id>
+              <name>Sumatran</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012309</id>
+          <name>International Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005029</id>
+          <name>International Fusion</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002672</id>
+          <name>Japanese Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011901</id>
+              <name>Enka</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011982</id>
+              <name>Japanese Orchestral</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011941</id>
+              <name>Kabuki</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012310</id>
+              <name>Kayokyoku</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012355</id>
+              <name>Noh</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012356</id>
+              <name>Okinawan Traditional</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012223</id>
+              <name>Rakugo</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012025</id>
+              <name>Shinto</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011964</id>
+              <name>Traditional Japanese</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002676</id>
+          <name>Jewish Music</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012231</id>
+              <name>American Jewish Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002566</id>
+              <name>Chanukah</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011849</id>
+              <name>Chassidic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011826</id>
+              <name>Hebrew</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012078</id>
+              <name>Jewish Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002685</id>
+              <name>Klezmer</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002680</id>
+          <name>Mediterranean Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002585</id>
+              <name>Cretan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012301</id>
+              <name>Dimotiko</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002624</id>
+              <name>Greek</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011936</id>
+              <name>Greek Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012353</id>
+              <name>Laika</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011912</id>
+              <name>Nissiotiko</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002743</id>
+              <name>Rembetika</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002844</id>
+              <name>Sardinian</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002726</id>
+          <name>Middle Eastern Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002415</id>
+              <name>Afghanistan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012229</id>
+              <name>Al-Jil</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012133</id>
+              <name>Apala</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002428</id>
+              <name>Arabic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011813</id>
+              <name>Belly Dancing</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002569</id>
+              <name>Egyptian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012212</id>
+              <name>Iran-Classical</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002664</id>
+              <name>Iranian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002665</id>
+              <name>Iraqi</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002668</id>
+              <name>Israeli</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002688</id>
+              <name>Kurdish</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002656</id>
+              <name>Kuwaiti</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002699</id>
+              <name>Lebanese</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012152</id>
+              <name>Middle Eastern Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002727</id>
+              <name>Palestinian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002774</id>
+              <name>Persian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002845</id>
+              <name>Saudi Arabian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012128</id>
+              <name>Sha'abi</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002888</id>
+              <name>Syrian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012029</id>
+              <name>Traditional Middle Eastern Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002910</id>
+              <name>Turkish</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002938</id>
+              <name>Yemenite</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012187</id>
+          <name>Neo-Traditional</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004471</id>
+          <name>Nordic Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002546</id>
+              <name>Danish</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002588</id>
+              <name>Finnish Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002653</id>
+              <name>Icelandic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011983</id>
+              <name>Joik</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002758</id>
+              <name>Norwegian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011950</id>
+              <name>Norwegian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002757</id>
+              <name>Sami</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002847</id>
+              <name>Scandinavian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002885</id>
+              <name>Swedish Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002824</id>
+              <name>Yodel</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002716</id>
+          <name>North American Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002427</id>
+              <name>Appalachian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002493</id>
+              <name>Cajun</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002497</id>
+              <name>Canadian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012012</id>
+              <name>Inuit</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002740</id>
+              <name>Native American</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002808</id>
+              <name>Quebecois</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002943</id>
+              <name>Zydeco</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002596</id>
+          <name>North/East Asian Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002686</id>
+              <name>Korean</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002731</id>
+              <name>Mongolian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002854</id>
+              <name>Siberian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012367</id>
+              <name>Traditional Korean</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012326</id>
+              <name>Trot</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004470</id>
+          <name>Oceanic Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002435</id>
+              <name>Australasian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002436</id>
+              <name>Australian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002644</id>
+              <name>Hawaiian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012211</id>
+              <name>Hawaiian Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002682</id>
+              <name>Melanesian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002724</id>
+              <name>Micronesian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002751</id>
+              <name>New Zealand</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002725</id>
+              <name>Pacific Islands</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002781</id>
+              <name>Polynesian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002843</id>
+              <name>Samoan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012159</id>
+              <name>Slack-Key Guitar</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002782</id>
+              <name>Solomon Islands</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002889</id>
+              <name>Tahitian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002799</id>
+              <name>Tongan</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002937</id>
+          <name>Pan-Global</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011991</id>
+          <name>Pipe Bands</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012090</id>
+          <name>Quadrille</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002838</id>
+          <name>Russian Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012024</id>
+              <name>Russian Folk</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002869</id>
+          <name>South American Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002426</id>
+              <name>Andean Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002429</id>
+              <name>Argentinian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002470</id>
+              <name>Bolivian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002510</id>
+              <name>Chilean</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002524</id>
+              <name>Colombian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002541</id>
+              <name>Cumbia</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002568</id>
+              <name>Ecuadorian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002621</id>
+              <name>Frevo</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002654</id>
+              <name>Incan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011939</id>
+              <name>Jibaro</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002713</id>
+              <name>Native South American</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002772</id>
+              <name>Paraguayan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002775</id>
+              <name>Peruvian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012221</id>
+              <name>Peruvian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012222</id>
+              <name>Quechua</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002891</id>
+              <name>Tango</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002919</id>
+              <name>Uruguayan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002811</id>
+              <name>Vallenato</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002921</id>
+              <name>Venezuelan</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002597</id>
+          <name>South/Eastern European Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002418</id>
+              <name>Albanian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002445</id>
+              <name>Balkan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002513</id>
+              <name>Baltic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002474</id>
+              <name>Bosnian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002488</id>
+              <name>Bulgarian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012066</id>
+              <name>Bulgarian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002490</id>
+              <name>Byelorussian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002539</id>
+              <name>Croatian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002577</id>
+              <name>Estonian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002631</id>
+              <name>Gypsy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002698</id>
+              <name>Latvian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002704</id>
+              <name>Macedonian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002695</id>
+              <name>Moldavian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002834</id>
+              <name>Romanian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002851</id>
+              <name>Serbian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011839</id>
+              <name>Sharki</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002778</id>
+              <name>Slovenian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002904</id>
+              <name>Transylvanian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002917</id>
+              <name>Ukranian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002939</id>
+              <name>Yugoslavian</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004468</id>
+          <name>Southeast Asian Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002473</id>
+              <name>Bornean</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002495</id>
+              <name>Cambodian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012151</id>
+              <name>Khmer Dance</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004518</id>
+              <name>Kulintang</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002690</id>
+              <name>Laotian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002707</id>
+              <name>Malaysian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002738</id>
+              <name>Myanmarian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002732</id>
+              <name>Papua New Guinea</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002737</id>
+              <name>Philippine</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002853</id>
+              <name>Siamese</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002901</id>
+              <name>Thai</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002923</id>
+              <name>Vietnamese</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012056</id>
+          <name>Traditional European Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004467</id>
+          <name>Western European Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011846</id>
+              <name>Andalus Classical</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002440</id>
+              <name>Azorean</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002452</id>
+              <name>Basque</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002458</id>
+              <name>Belgian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002535</id>
+              <name>Bolero</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002481</id>
+              <name>British</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002575</id>
+              <name>Choro</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011971</id>
+              <name>Contemporary Flamenco</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002560</id>
+              <name>Dutch</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002603</id>
+              <name>Fado</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002589</id>
+              <name>Flamenco</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002600</id>
+              <name>French</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012274</id>
+              <name>French Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012118</id>
+              <name>Italian Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002669</id>
+              <name>Italian Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012121</id>
+              <name>Musette</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002789</id>
+              <name>Portuguese</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002873</id>
+              <name>Spanish Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002886</id>
+              <name>Swiss Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002914</id>
+              <name>Tyrolean</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011922</id>
+          <name>Worldbeat</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002674</id>
+      <name>Jazz</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000002438</id>
+          <name>Avant-Garde Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002461</id>
+          <name>Big Band</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002471</id>
+          <name>Boogie-Woogie</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002457</id>
+          <name>Bop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012264</id>
+          <name>British Dance Bands</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012336</id>
+          <name>Chamber Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002508</id>
+          <name>Chicago Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004545</id>
+          <name>Contemporary Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012140</id>
+          <name>Continental Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002530</id>
+          <name>Cool</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012142</id>
+          <name>Crossover Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012107</id>
+          <name>Dance Bands</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002553</id>
+          <name>Dixieland</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011973</id>
+          <name>Early Creative</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002519</id>
+          <name>Early Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012242</id>
+          <name>Electric Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012009</id>
+          <name>Experimental Big Band</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011933</id>
+          <name>Folk Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011823</id>
+          <name>Free Funk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004486</id>
+          <name>Free Improvisation</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002598</id>
+          <name>Free Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002607</id>
+          <name>Fusion</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002634</id>
+          <name>Hard Bop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011856</id>
+          <name>Hot Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011827</id>
+          <name>Jazz Blues</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002947</id>
+          <name>Jazz Instrument</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002451</id>
+              <name>Guitar Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002476</id>
+              <name>Piano Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002479</id>
+              <name>Saxophone Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002907</id>
+              <name>Trombone Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002485</id>
+              <name>Trumpet Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002922</id>
+              <name>Vibraphone/Marimba Jazz</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011905</id>
+          <name>Jazz-Funk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011906</id>
+          <name>Jazz-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012150</id>
+          <name>Jive</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012249</id>
+          <name>Mainstream Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012182</id>
+          <name>M-Base</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011865</id>
+          <name>Modal Music</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011986</id>
+          <name>Modern Big Band</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011987</id>
+          <name>Modern Creative</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012185</id>
+          <name>Modern Free</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004544</id>
+          <name>Modern Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011946</id>
+          <name>Neo-Bop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011867</id>
+          <name>New Orleans Brass Bands</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011830</id>
+          <name>New Orleans Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012189</id>
+          <name>New Orleans Jazz Revival</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012047</id>
+          <name>Novelty Ragtime</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011833</id>
+          <name>Orchestral Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005010</id>
+          <name>Post-Bop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012127</id>
+          <name>Progressive Big Band</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012362</id>
+          <name>Progressive Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004422</id>
+          <name>Ragtime</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002860</id>
+          <name>Smooth Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012365</id>
+          <name>Society Dance Band</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002866</id>
+          <name>Soul Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012256</id>
+          <name>Straight-Ahead Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012053</id>
+          <name>Stride</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011843</id>
+          <name>Sweet Bands</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004423</id>
+          <name>Swing</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012292</id>
+          <name>Third Stream</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012054</id>
+          <name>Trad Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002948</id>
+          <name>Vocal Jazz</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002472</id>
+              <name>Bop Vocals</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002966</id>
+              <name>Contemporary Jazz Vocals</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002964</id>
+              <name>Early Jazz Vocals</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002965</id>
+              <name>Modern Jazz Vocals</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004487</id>
+              <name>Vocalese</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002933</id>
+          <name>West Coast Jazz</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012260</id>
+          <name>World Fusion</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002417</id>
+              <name>African Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012262</id>
+              <name>Afro-Cuban Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002478</id>
+              <name>Brazilian Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011930</id>
+              <name>Cuban Jazz</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002464</id>
+              <name>Latin Jazz</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002692</id>
+      <name>Latin</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012098</id>
+          <name>Afro-Brazilian</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012132</id>
+          <name>Afro-Colombian</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012061</id>
+          <name>Afro-Peruvian</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002505</id>
+          <name>Alternative Latin</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012035</id>
+          <name>Beguine</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012135</id>
+          <name>Beguine Moderne</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012064</id>
+          <name>Beguine Vide</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011887</id>
+          <name>Boogaloo</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002503</id>
+          <name>Central American Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002627</id>
+              <name>Guatemalan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002647</id>
+              <name>Honduran</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002752</id>
+              <name>Nicaraguan</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002770</id>
+              <name>Panamanian</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002841</id>
+              <name>Salvadoran</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012068</id>
+          <name>Cha-Cha</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012266</id>
+          <name>Changui</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012143</id>
+          <name>Cuatro</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002540</id>
+          <name>Cuban Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000004549</id>
+              <name>Afro-Cuban</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002570</id>
+              <name>Charanga</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012144</id>
+              <name>Cuban Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002587</id>
+              <name>Danzon</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012178</id>
+              <name>Guaguancó</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002709</id>
+              <name>Mambo</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002723</id>
+              <name>Nueva Trova</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002754</id>
+              <name>Rumba</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011996</id>
+              <name>Timba</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002555</id>
+          <name>Dominican Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002441</id>
+              <name>Bachata</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002720</id>
+              <name>Merengue</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012214</id>
+              <name>Merenhouse</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012314</id>
+              <name>Mini Jazz</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012119</id>
+          <name>Lambada</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012015</id>
+          <name>Latin Big Band</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002693</id>
+          <name>Latin CCM</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011984</id>
+          <name>Latin Comedy</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002694</id>
+          <name>Latin Dance</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012016</id>
+          <name>Latin Folk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011861</id>
+          <name>Latin Freestyle</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004461</id>
+          <name>Latin Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012248</id>
+          <name>Latin Soul</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002722</id>
+          <name>Mexican Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002447</id>
+              <name>Banda</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012339</id>
+              <name>Conjunto</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011893</id>
+              <name>Corrido</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004460</id>
+              <name>Duranguense</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012344</id>
+              <name>Grupero</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002712</id>
+              <name>Mariachi</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002755</id>
+              <name>Norteno</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012048</id>
+              <name>Onda Grupera</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002815</id>
+              <name>Ranchera</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002783</id>
+              <name>Sonidero</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002896</id>
+              <name>Tejano</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002900</id>
+              <name>Tex-Mex</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012153</id>
+          <name>Modern Son</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012046</id>
+          <name>New York Salsa</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002719</id>
+          <name>Nueva Cancion</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011951</id>
+          <name>Pachanga</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002804</id>
+          <name>Puerto Rican Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000004492</id>
+              <name>Bomba</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004493</id>
+              <name>Plena</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002976</id>
+          <name>Reggaeton</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002826</id>
+          <name>Rock en Español</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002840</id>
+          <name>Salsa</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002586</id>
+          <name>Son</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011957</id>
+          <name>Sonero</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012057</id>
+          <name>Tropical</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012165</id>
+          <name>Trova</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002745</id>
+      <name>New Age</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012261</id>
+          <name>Adult Alternative</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012005</id>
+          <name>Contemporary Instrumental</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002576</id>
+          <name>Environmental</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012111</id>
+          <name>Ethnic Fusion</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002591</id>
+          <name>Flute/New Age</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002833</id>
+          <name>Guitar/New Age</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002835</id>
+          <name>Harp/New Age</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012346</id>
+          <name>Healing</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004424</id>
+          <name>Inspirational</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002683</id>
+          <name>Keyboard/Synthesizer/New Age</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002717</id>
+          <name>Meditation/Relaxation</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012186</id>
+          <name>Mystical Minimalism</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012045</id>
+          <name>Nature</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012217</id>
+          <name>Neo-Classical</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011948</id>
+          <name>New Age Tone Poems</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002839</id>
+          <name>Piano/New Age</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012190</id>
+          <name>Progressive Alternative</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011836</id>
+          <name>Progressive Electronic</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012285</id>
+          <name>Relaxation</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011956</id>
+          <name>Solo Instrumental</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012052</id>
+          <name>Space</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011995</id>
+          <name>Spiritual</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012225</id>
+          <name>Techno-Tribal</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002613</id>
+      <name>Pop/Rock</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000011924</id>
+          <name>Aboriginal Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004445</id>
+          <name>Adult Contemporary</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004459</id>
+          <name>Album Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012230</id>
+          <name>Alternative/Indie Rock</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000004488</id>
+              <name>Adult Alternative Pop/Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002421</id>
+              <name>Alt-Country</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012294</id>
+              <name>Alternative Country-Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011883</id>
+              <name>Alternative Dance</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002422</id>
+              <name>Alternative Pop/Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012100</id>
+              <name>Alternative Singer/Songwriter</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012263</id>
+              <name>Ambient Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012062</id>
+              <name>American Underground</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002480</id>
+              <name>Britpop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011816</id>
+              <name>C-86</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012300</id>
+              <name>Chamber Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002639</id>
+              <name>Christian Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012105</id>
+              <name>Cocktail</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012237</id>
+              <name>College Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012108</id>
+              <name>Darkwave</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012303</id>
+              <name>Dream Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012207</id>
+              <name>Electro-Industrial</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004447</id>
+              <name>Emo</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012243</id>
+              <name>Emo-Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002583</id>
+              <name>Experimental Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012073</id>
+              <name>Free Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002408</id>
+              <name>Garage Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012343</id>
+              <name>Garage Rock Revival</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002623</id>
+              <name>Goth Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002626</id>
+              <name>Grunge</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012275</id>
+              <name>Indie Electronic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012149</id>
+              <name>Indie Folk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004494</id>
+              <name>Indie Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004453</id>
+              <name>Indie Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002658</id>
+              <name>Industrial</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012349</id>
+              <name>Jangle Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002701</id>
+              <name>Lo-Fi</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000005017</id>
+              <name>Madchester</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012250</id>
+              <name>Math Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011829</id>
+              <name>Mod Revival</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011911</id>
+              <name>Neo-Glam</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012252</id>
+              <name>Neo-Psychedelia</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012020</id>
+              <name>New Wave/Post-Punk Revival</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012084</id>
+              <name>New Zealand Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012156</id>
+              <name>Noise Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004455</id>
+              <name>Noise-Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012089</id>
+              <name>Paisley Underground</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012125</id>
+              <name>Post-Hardcore</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004450</id>
+              <name>Post-Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002790</id>
+              <name>Post-Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002801</id>
+              <name>Psychobilly</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012191</id>
+              <name>Punk Blues</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012023</id>
+              <name>Punk Revival</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004449</id>
+              <name>Punk-Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012091</id>
+              <name>Queercore</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002749</id>
+              <name>Retro Swing</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011837</id>
+              <name>Riot Grrrl</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012286</id>
+              <name>Sadcore</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004448</id>
+              <name>Screamo</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011840</id>
+              <name>Shibuya-Kei</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004454</id>
+              <name>Shoegaze</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002640</id>
+              <name>Ska-Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012160</id>
+              <name>Slowcore</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011994</id>
+              <name>Sophisti-Pop</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012255</id>
+              <name>Space Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012129</id>
+              <name>Third Wave Ska Revival</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012201</id>
+              <name>Twee Pop</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012000</id>
+          <name>AM Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012033</id>
+          <name>American Trad Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012329</id>
+          <name>Arena Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002431</id>
+          <name>Art Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012169</id>
+          <name>Asian Pop</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011907</id>
+              <name>Korean Pop</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012330</id>
+          <name>Aussie Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011968</id>
+          <name>AustroPop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012063</id>
+          <name>Bar Band</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012101</id>
+          <name>Baroque Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002468</id>
+          <name>Blues-Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011815</id>
+          <name>Boogie Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012296</id>
+          <name>Brill Building Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002483</id>
+          <name>British Folk-Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002484</id>
+          <name>British Invasion</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012070</id>
+              <name>Early British Pop/Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012018</id>
+              <name>Merseybeat</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002728</id>
+              <name>Mod</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012003</id>
+          <name>British Trad Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002487</id>
+          <name>Bubblegum</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012298</id>
+          <name>Canterbury Scene</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012333</id>
+          <name>Celebrity</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005023</id>
+          <name>Celtic Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012205</id>
+          <name>Chinese Pop/Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012139</id>
+          <name>Comedy Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004443</id>
+          <name>Contemporary Pop/Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012268</id>
+          <name>Contemporary Singer/Songwriter</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002536</id>
+          <name>Country-Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004489</id>
+          <name>C-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004548</id>
+          <name>Dance-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012069</id>
+          <name>Dance-Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012109</id>
+          <name>Detroit Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011852</id>
+          <name>Dutch Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002763</id>
+          <name>Early Pop/Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011821</id>
+          <name>Eastern European Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004446</id>
+          <name>Euro-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012305</id>
+          <name>Euro-Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002951</id>
+          <name>Exercise</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002582</id>
+          <name>Experimental</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012307</id>
+          <name>Frat Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012177</id>
+          <name>French Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011853</id>
+          <name>French Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002618</id>
+          <name>Girl Groups</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002619</id>
+          <name>Glam Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011935</id>
+          <name>Glitter</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005016</id>
+          <name>Greek-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002630</id>
+          <name>Guitar Virtuoso</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002636</id>
+          <name>Hard Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012246</id>
+          <name>Heartland Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002721</id>
+          <name>Heavy Metal</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012328</id>
+              <name>Alternative Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002463</id>
+              <name>Black Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012103</id>
+              <name>British Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002547</id>
+              <name>Death Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004496</id>
+              <name>Doom Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012114</id>
+              <name>Funk Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011855</id>
+              <name>Goth Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004452</id>
+              <name>Grindcore</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011902</id>
+              <name>Hair Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012276</id>
+              <name>Industrial Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011866</id>
+              <name>Neo-Classical Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004491</id>
+              <name>New Wave of British Heavy Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004547</id>
+              <name>Nü Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002785</id>
+              <name>Pop-Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011913</id>
+              <name>Power Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002797</id>
+              <name>Progressive Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012022</id>
+              <name>Punk Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002817</id>
+              <name>Rap-Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012324</id>
+              <name>Scandinavian Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012161</id>
+              <name>Sludge Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002874</id>
+              <name>Speed/Thrash Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011961</id>
+              <name>Stoner Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012290</id>
+              <name>Symphonic Black Metal</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012347</id>
+          <name>Hong Kong Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011857</id>
+          <name>Hot Rod</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012116</id>
+          <name>Hot Rod Revival</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011904</id>
+          <name>Indipop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002827</id>
+          <name>Instrumental Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011980</id>
+          <name>International Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011938</id>
+          <name>Italian Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004456</id>
+          <name>Jam Bands</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012350</id>
+          <name>Japanese Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012014</id>
+          <name>Jazz-Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004490</id>
+          <name>J-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012311</id>
+          <name>Korean Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002687</id>
+          <name>Kraut Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011908</id>
+          <name>Latin Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012181</id>
+          <name>Liedermacher</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012122</id>
+          <name>Obscuro</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011989</id>
+          <name>Okinawan Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012254</id>
+          <name>Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012357</id>
+          <name>Pop Idol</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005020</id>
+          <name>Post-Grunge</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002793</id>
+          <name>Power Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002798</id>
+          <name>Prog-Rock</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011969</id>
+              <name>Avant-Prog</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012218</id>
+              <name>Neo-Prog</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005021</id>
+          <name>Proto-Punk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002800</id>
+          <name>Psychedelic/Garage</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012327</id>
+              <name>Acid Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012038</id>
+              <name>British Psychedelia</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002593</id>
+              <name>Folk-Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012342</id>
+              <name>Freakbeat</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004458</id>
+              <name>Garage Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011915</id>
+              <name>Psychedelic Pop</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002802</id>
+          <name>Pub Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011872</id>
+          <name>Punk/New Wave</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011885</id>
+              <name>American Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011967</id>
+              <name>Anarchist Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012137</id>
+              <name>British Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012106</id>
+              <name>Cowpunk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002641</id>
+              <name>Hardcore Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011860</id>
+              <name>L.A. Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002748</id>
+              <name>New Romantic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002750</id>
+              <name>New Wave</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012220</id>
+              <name>New York Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000005018</id>
+              <name>No Wave</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002761</id>
+              <name>Oi!</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002806</id>
+              <name>Punk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002403</id>
+              <name>Ska Revival</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011954</id>
+              <name>Skatepunk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012027</id>
+              <name>Straight-Edge</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002887</id>
+              <name>Synth Pop</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011992</id>
+          <name>Rap-Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012193</id>
+          <name>Retro-Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002829</id>
+          <name>Rock &amp; Roll</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002831</id>
+          <name>Rockabilly</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012051</id>
+          <name>Rockabilly Revival</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004457</id>
+          <name>Roots Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012287</id>
+          <name>Scandinavian Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011838</id>
+          <name>Schlager</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002855</id>
+          <name>Singer/Songwriter</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002858</id>
+          <name>Skiffle</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011841</id>
+          <name>Soft Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012195</id>
+          <name>South African Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002872</id>
+          <name>Southern Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012026</id>
+          <name>Sports Anthems</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012028</id>
+          <name>Sunshine Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002883</id>
+          <name>Surf</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011842</id>
+          <name>Surf Revival</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012257</id>
+          <name>Swamp Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012095</id>
+          <name>Swedish Pop/Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011918</id>
+          <name>Taiwanese Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002894</id>
+          <name>Teen Idols</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002895</id>
+          <name>Teen Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012163</id>
+          <name>Thai Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012198</id>
+          <name>Tribute Albums</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002809</id>
+      <name>R&amp;B</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012131</id>
+          <name>Adult Contemporary R&amp;B</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000013375</id>
+          <name>Alternative R&amp;B</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012034</id>
+          <name>Beach</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002969</id>
+          <name>Contemporary R&amp;B</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002552</id>
+          <name>Disco</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002556</id>
+          <name>Doo Wop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002520</id>
+          <name>Early R&amp;B</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002606</id>
+          <name>Funk</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011931</id>
+              <name>Deep Funk</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012271</id>
+              <name>Deep Funk Revival</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004428</id>
+              <name>Go-Go</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005027</id>
+          <name>New Jack Swing</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002747</id>
+          <name>New Orleans R&amp;B</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012124</id>
+          <name>Post-Disco</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004425</id>
+          <name>Quiet Storm</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002810</id>
+          <name>R&amp;B Instrumental</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002865</id>
+          <name>Soul</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012036</id>
+              <name>Blue-Eyed Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012297</id>
+              <name>Brown-Eyed Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002509</id>
+              <name>Chicago Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011895</id>
+              <name>Country Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011850</id>
+              <name>Deep Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012120</id>
+              <name>Memphis Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002735</id>
+              <name>Motown</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004426</id>
+              <name>Neo-Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004427</id>
+              <name>Northern Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002776</id>
+              <name>Philly Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011870</id>
+              <name>Pop-Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000005025</id>
+              <name>Psychedelic Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011953</id>
+              <name>Retro-Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011955</id>
+              <name>Smooth Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002877</id>
+              <name>Southern Soul</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012166</id>
+              <name>Uptown Soul</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011965</id>
+          <name>Urban</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002816</id>
+      <name>Rap</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012203</id>
+          <name>Alternative Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012265</id>
+          <name>British Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012206</id>
+          <name>Comedy Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012040</id>
+          <name>Dirty Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011851</id>
+          <name>Dirty South</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002563</id>
+          <name>East Coast Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002599</id>
+          <name>Freestyle</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002604</id>
+          <name>French Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002611</id>
+          <name>Gangsta Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011824</id>
+          <name>G-Funk</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012011</id>
+          <name>Golden Age</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011937</id>
+          <name>Hardcore Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012180</id>
+          <name>Jazz-Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002696</id>
+          <name>Latin Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011909</id>
+          <name>Left-Field Hip-Hop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011863</id>
+          <name>Midwest Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002762</id>
+          <name>Old-School Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012321</id>
+          <name>Party Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012322</id>
+          <name>Political Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005012</id>
+          <name>Pop-Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002871</id>
+          <name>Southern Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002911</id>
+          <name>Turntablism</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002918</id>
+          <name>Underground Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002932</id>
+          <name>West Coast Rap</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000002820</id>
+      <name>Reggae</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000011886</id>
+          <name>Bluebeat</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011892</id>
+          <name>Contemporary Reggae</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002545</id>
+          <name>Dancehall</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002554</id>
+          <name>DJ/Toasting</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002559</id>
+          <name>Dub</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011897</id>
+          <name>Dub Poetry</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004430</id>
+          <name>Lovers Rock</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011868</id>
+          <name>Nyahbinghi</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011834</id>
+          <name>Political Reggae</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005028</id>
+          <name>Ragga</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012092</id>
+          <name>Reggae-Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002830</id>
+          <name>Rocksteady</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002836</id>
+          <name>Roots Reggae</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002857</id>
+          <name>Ska</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011916</id>
+          <name>Smooth Reggae</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004429</id>
+          <name>Sound System</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000004431</id>
+      <name>Religious</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000002529</id>
+          <name>Contemporary Christian</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011882</id>
+              <name>Alternative CCM</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004439</id>
+              <name>CCM</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012337</id>
+              <name>Christian Comedy</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002975</id>
+              <name>Christian Metal</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002971</id>
+              <name>Christian Rap</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002945</id>
+              <name>Christian Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012213</id>
+              <name>Jesus Rock</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004546</id>
+              <name>LDS Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012284</id>
+              <name>Praise &amp; Worship</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002622</id>
+          <name>Gospel</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000011926</id>
+              <name>Black Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012136</id>
+              <name>Bluegrass-Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002967</id>
+              <name>Contemporary Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002534</id>
+              <name>Country Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012245</id>
+              <name>Gospel Choir</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000011903</id>
+              <name>Hymns</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012179</id>
+              <name>Instrumental Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012277</id>
+              <name>Latin Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012192</id>
+              <name>Reggae Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012288</id>
+              <name>Scriptures</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002870</id>
+              <name>Southern Gospel</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000005009</id>
+              <name>Spirituals</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002972</id>
+              <name>Traditional Gospel</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002822</id>
+          <name>Sacred Traditions</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000002550</id>
+              <name>Buddhist</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012233</id>
+              <name>Ceremonial</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002667</id>
+              <name>Islamic</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012080</id>
+              <name>Mantras</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002746</id>
+              <name>Ritual Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002791</id>
+              <name>Sufi</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000004432</id>
+      <name>Stage &amp; Screen</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000002767</id>
+          <name>Cast Recordings</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000004437</id>
+              <name>Musical Theater</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012216</id>
+              <name>Musicals</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002852</id>
+              <name>Show Tunes</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004434</id>
+          <name>Sound Effects</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000004435</id>
+              <name>Bird Calls</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004436</id>
+              <name>Occasion-Based Effects</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002867</id>
+          <name>Soundtracks</name>
+          <type>Music SubGenre</type>
+          <styles>
+            <style>
+              <id>MA0000012001</id>
+              <name>Anime Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012002</id>
+              <name>Blaxploitation</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000004776</id>
+              <name>Cartoon Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002974</id>
+              <name>Film Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012281</id>
+              <name>Movie Themes</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012320</id>
+              <name>Original Score</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002812</id>
+              <name>Radio Plays</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012224</id>
+              <name>Spy Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002913</id>
+              <name>TV Music</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000012200</id>
+              <name>TV Soundtracks</name>
+              <type>Music Style</type>
+            </style>
+            <style>
+              <id>MA0000002952</id>
+              <name>Video Game Music</name>
+              <type>Music Style</type>
+            </style>
+          </styles>
+        </subgenre>
+      </subgenres>
+    </Genre>
+    <Genre>
+      <id>MA0000011877</id>
+      <name>Vocal</name>
+      <type>Music Genre</type>
+      <subgenres>
+        <subgenre>
+          <id>MA0000012097</id>
+          <name>Acappella</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011884</id>
+          <name>American Popular Song</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012134</id>
+          <name>Barbershop Quartet</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002492</id>
+          <name>Cabaret</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000004466</id>
+          <name>Composer Songbook</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002605</id>
+          <name>French Chanson</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012115</id>
+          <name>Harmony Vocal Group</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000012154</id>
+          <name>Music Hall</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005015</id>
+          <name>Nouvelle Chanson</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011874</id>
+          <name>Standards</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011920</id>
+          <name>Tin Pan Alley Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000011997</id>
+          <name>Torch Songs</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002961</id>
+          <name>Traditional Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000005005</id>
+          <name>Vaudeville</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+        <subgenre>
+          <id>MA0000002787</id>
+          <name>Vocal Pop</name>
+          <type>Music SubGenre</type>
+        </subgenre>
+      </subgenres>
+    </Genre>
+  </genres>
+</MusicGenres>

@@ -2,10 +2,15 @@ Please use the following in Picard for File Naming. This can be found in Picard 
 
 %_dir9%/%_dir8%/%_dir7%/%_dir6%/%_dir5%/%_dir4%/%_dir3%/%_dir2%/%_dir1%/%_dir0%/%_name1%. %_name0%
 
+Tags to keep:
+
+replaygain_album_gain replaygain_album_peak replaygain_track_gain replaygain_track_peak bpm lyrics:description ~id3:SYLT
+
+
 Create GUI Script
  http://qt.nokia.com/downloads/qt-creator-binary-for-windows
  http://www.riverbankcomputing.co.uk/software/pyqt/download
- C:\ProgramData\Python27\Lib\site-packages\PyQt4\pyuic4.bat BetterPath.ui > ui_options_betterpath.py
+ C:\ProgramFiles\Python27\Lib\site-packages\PyQt4\pyuic4.bat BetterPath.ui > ui_options_betterpath.py
 
 Find multi-disc releases that need sorting out in the DB
  clear; echo; echo; find /mnt/media/Audio -type f -name 01.*\(1\)*; echo;
