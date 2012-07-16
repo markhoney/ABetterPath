@@ -219,10 +219,7 @@ class addalbum():
   self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_album_toptags'], partial(self._processlastfmalbumtags))
 
  def _processlastfmalbumtags(self, data, http, error):
-  try:
-   self._lastfmtags(data.lfm[0].toptags[0].tag)
-  except:
-   pass
+  self._lastfmtags(data)
   self._lastfmartisttags()
 
  def _lastfmartisttags(self):
@@ -234,10 +231,7 @@ class addalbum():
    self._processtags()
 
  def _processlastfmartisttags(self, data, http, error):
-  try:
-   self._lastfmtags(data.lfm[0].toptags[0].tag)
-  except:
-   pass
+  self._lastfmtags(data)
   #self._echonestartisttags()
   self._processtags()
   
@@ -252,7 +246,7 @@ class addalbum():
  def _processechonestartisttags(self, data, http, error):
   for tag in data.response[0].terms:
    try:
-    self._addtag(tag.name[0].text.capitalize(), int(float(tag.weight[0].text) * 100))
+    self._addtag(tag.name[0].text.title(), int(float(tag.weight[0].text) * 100))
    except:
     pass
   self._processtags()
@@ -268,10 +262,12 @@ class addalbum():
   self.album._requests = 0
   self.album._finalize_loading(None)
 
- def _lastfmtags(self, tags):
-  for tag in tags:
-   self._addtag(tag.name[0].text.capitalize(), int(tag.count[0].text))
-   #sys.stderr.write(tagname + ": " + str(tags[tagname]) + "\n")
+ def _lastfmtags(self, data):
+  try:
+   for tag in data.lfm[0].toptags[0].tag:
+    self._addtag(tag.name[0].text.title(), int(tag.count[0].text))
+  except:
+   pass
 
  def _addtag(self, tag, score):
   if tag in self.tags:
@@ -283,7 +279,7 @@ class addalbum():
   genre = dict()
   subgenres = list()
   for tag in sorted(self.tags, key = self.tags.get, reverse = True):
-   if tag in self.cfg['abetterpath_tag_genres']:
+   if tag in self.cfg['abetterpath_tag_genres']: # (tagname.title() for tagname in )
     if self.cfg['abetterpath_tag_genres'][tag] in genre:
      genre[self.cfg['abetterpath_tag_genres'][tag]] += self.tags[tag]
     else:
@@ -327,13 +323,17 @@ class addalbum():
   """
   Recursively Make the folder that the files are going to be moved to, and change the date of the folder to match the original release date of the release
   """
-  timeInt = int(time.mktime(self._date().timetuple()))
-  timeTuple = (timeInt, timeInt)
-  folderPath = os.path.join(self.album.config.setting["move_files_to"], *replaceChars(self.path, self.cfg['abetterpath_tag_chars_to_chars']))
-  if self.album.config.setting["move_files"] and not os.path.exists(folderPath):
-   os.makedirs(folderPath)
-  os.utime(folderPath, timeTuple)
-  #sys.stderr.write(folderPath + "\n")
+  try:
+   timeInt = int(time.mktime(self._date().timetuple()))
+  except:
+   pass
+  else:
+   timeTuple = (timeInt, timeInt)
+   folderPath = os.path.join(self.album.config.setting["move_files_to"], *replaceChars(self.path, self.cfg['abetterpath_tag_chars_to_chars']))
+   if self.album.config.setting["move_files"] and not os.path.exists(folderPath):
+    os.makedirs(folderPath)
+   os.utime(folderPath, timeTuple)
+   #sys.stderr.write(folderPath + "\n")
 
  def _date(self):
   date = list()
@@ -423,7 +423,7 @@ class addtrack():
   tags = list()
   try:
    for fmtag in data.lfm[0].toptags[0].tag:
-    tags.append(fmtag.name[0].text.capitalize())
+    tags.append(fmtag.name[0].text.title())
   except:
    pass
   if tags:
