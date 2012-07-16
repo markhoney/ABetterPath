@@ -7,6 +7,7 @@
 # Your Shared Secret: A4y/h2lASQGe7/jTzKMS4Q
 # "http://developer.echonest.com/api/v4/artist/urls?format=xml&api_key=A0ODEL28DRISOEJ0D&id=musicbrainz:artist:" +
 
+# Rovio (AllMusic)
 # Key: 3qjjbgkjms3nc9jcnr2xt5r8
 # Shared Secret: dbA8sN4bJV
 # http://developer.rovicorp.com/siggen
@@ -25,18 +26,9 @@ from picard.webservice import REQUEST_DELAY
 from picard.util import partial
 from picard.mbxml import release_to_metadata
 
-#import traceback
 import re, os, codecs, time, sys
 import unicodedata
 from datetime import datetime, timedelta
-
-fmhost = 'ws.audioscrobbler.com'
-fmport = 80
-import traceback
-from picard.util import partial
-from picard.webservice import REQUEST_DELAY
-REQUEST_DELAY[(fmhost, fmport)] = 200
-
 
 PLUGIN_NAME = "A Better Path"
 PLUGIN_AUTHOR = 'Mark Honeychurch'
@@ -44,17 +36,19 @@ PLUGIN_DESCRIPTION = 'Makes some extra tags to help with sorting out my music co
 PLUGIN_VERSION = "0.3"
 PLUGIN_API_VERSIONS = ["1.0"]
 
-pluginprefix = "abetterpath"
-
 class addalbum():
  def __init__(self, album, metadata, release):
   self.config = cfg()
   self.config.load(album.config.setting)
   self.cfg = self.config.cfg
+  from picard.webservice import REQUEST_DELAY
   REQUEST_DELAY[(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'])] = 200
   self.album = album
   self.metadata = metadata
   self.release = release
+  #sys.stderr.write("album: " + pprint.pformat(self.album) + "\n\n")
+  #sys.stderr.write("metadata: " + pprint.pformat(self.metadata) + "\n\n")
+  #sys.stderr.write("release: " + pprint.pformat(self.release) + "\n\n")
   self.albumartist = self.metadata["albumartist"]
   self.artistpseudonym = ""
   self.albumname = self.metadata["album"]
@@ -93,7 +87,7 @@ class addalbum():
   albumYear = ""
   if self.cfg['abetterpath_album_date_folder'] and albumDate:
    albumYear = self.cfg['abetterpath_album_date_prefix'] + time.strftime(self.cfg['abetterpath_album_date_format'], albumDate) + self.cfg['abetterpath_album_date_suffix']
-  albumSuffix = self._suffix(self.metadata["releasestatus"], self.metadata["releasetype"], self.metadata["album"])
+  albumSuffix = self._suffix()
   self.path.append(albumYear + self.albumname + albumSuffix)
   if not self.cfg['abetterpath_artist_sort_tag']:
    self.metadata["albumartistsort"] = self.albumartist
@@ -101,19 +95,6 @@ class addalbum():
   #self._artisturl()
   self.metadata['~filename'] = self.cfg['abetterpath_tag_separator'].join(self.path)
   self._folderdate()
-
- def _date(self):
-  date = False
-  for albumDate in [self.metadata["originaldate"], self.metadata["date"], self.metadata["album"].split(":")[0]]:
-   for dateFormat in self.cfg['abetterpath_album_date_formats']:
-    try:
-     dateTemp = datetime.strptime(albumDate, dateFormat)
-    except:
-     pass
-    else:
-     if not date:
-      date = dateTemp
-  return date
 
  def _albumAliases(self):
   albumName = self.albumname
@@ -181,16 +162,22 @@ class addalbum():
     return ", ".join((text[len(prefix):].strip(), prefix))
   return text
 
- def _suffix(self, releasestatus, releasetype, album):
+ def _suffix(self):
+  # 'abetterpath_album_release_status_list', {'bootleg': 'Bootleg', 'promotion': 'Promo'}
+  # 'abetterpath_album_release_type_compilation', ['album', 'single', 'ep', 'live', 'other']
+  # 'abetterpath_album_release_type_list', ['Single', 'EP', 'Remix', 'Live']
+  # 'abetterpath_album_compilation_excluded', ['remix']
+  # 'abetterpath_album_release_type_reverse', ['Live']
+  # 'abetterpath_album_release_status_reverse', ['']
+  # 'abetterpath_album_catalog_order', ['catalognumber', 'barcode', 'asin', 'date', 'totaltracks', 'releasetype']
   suffixlist = list()
-  album_release_status_list = self.cfg['abetterpath_album_release_status_list']
-  for status in album_release_status_list:
-   if releasestatus.lower() == status.lower():
-    if not status.lower() in album.lower():
-     suffixlist.append(album_release_status_list[status])
+  for status in self.cfg['abetterpath_album_release_status_list']:
+   if self.metadata["releasestatus"].lower() == status.lower():
+    if not status.lower() in self.metadata["album"].lower():
+     suffixlist.append(self.cfg['abetterpath_album_release_status_list'][status])
   for albumtype in self.cfg['abetterpath_album_release_type_list']:
-   if releasetype.lower() == albumtype.lower():
-    if not albumtype.lower() in album.lower():
+   if self.metadata["releasetype"].lower() == albumtype.lower():
+    if not albumtype.lower() in self.metadata["album"].lower():
      suffixlist.append(albumtype)
   if len(suffixlist) > 1:
    if suffixlist[0] in self.cfg['abetterpath_album_release_status_reverse'] or suffixlist[1] in self.cfg['abetterpath_album_release_type_reverse']:
@@ -340,13 +327,25 @@ class addalbum():
   """
   Recursively Make the folder that the files are going to be moved to, and change the date of the folder to match the original release date of the release
   """
-  #timeInt = int(time.mktime(self._date().timetuple()))
-  #timeTuple = (timeInt, timeInt)
-  #folderPath = os.path.join(self.album.config.setting["move_files_to"], *self.path)
-  #if self.album.config.setting["move_files"]:
-  # os.makedirs(folderPath)
-  #os.utime(folderPath, timeTuple)
+  timeInt = int(time.mktime(self._date().timetuple()))
+  timeTuple = (timeInt, timeInt)
+  folderPath = os.path.join(self.album.config.setting["move_files_to"], *replaceChars(self.path, self.cfg['abetterpath_tag_chars_to_chars']))
+  if self.album.config.setting["move_files"] and not os.path.exists(folderPath):
+   os.makedirs(folderPath)
+  os.utime(folderPath, timeTuple)
   #sys.stderr.write(folderPath + "\n")
+
+ def _date(self):
+  date = list()
+  albumtitledate = ""
+  if len(self.metadata["album"].split(":")) == 2:
+   albumtitledate = self.metadata["album"].split(":")[0]
+  for albumDate in [self.metadata["originaldate"], self.metadata["date"], albumtitledate]:
+   for dateFormat in self.cfg['abetterpath_album_date_formats']:
+    try:
+     return datetime.strptime(albumDate, dateFormat)
+    except:
+     pass
 
 
 
@@ -372,7 +371,7 @@ class addtrack():
   #sys.stderr.write("track: " + pprint.pformat(self.track) + "\n\n")
   self.urls = dict()
   self.urls['lastfm_track'] = "/2.0/?method=track.gettoptags&mbid=" + self.metadata['musicbrainz_trackid'] + "&api_key=9407ca2b8eaa65632a283563ddd56792"
-  if self.metadata['totaldiscs'] > 1 or self.cfg['abetterpath_album_sub_always']:
+  if int(self.metadata['totaldiscs']) > 1 or self.cfg['abetterpath_album_sub_always']:
    subDiscName = self.cfg['abetterpath_album_sub_disc'] + self.metadata["discnumber"]
    if self.metadata["discsubtitle"] and self.cfg['abetterpath_album_sub_title_folder']:
     if self.cfg['abetterpath_album_sub_title_instead']:
@@ -394,7 +393,7 @@ class addtrack():
      self.trackname = self.trackname + self.cfg['abetterpath_track_artist_separator'] + self.metadata["artist"]
    for old, new in self.cfg['abetterpath_tag_chars_to_chars'].iteritems():
     self.trackname = self.trackname.replace(old[0], new[0])
-  self.path = self._replaceChars(self.path)
+  self.path = replaceChars(self.path, self.cfg['abetterpath_tag_chars_to_chars'])
   index = 0
   for namepart in reversed(self.path):
    self.metadata['~dir' + str(index)] = namepart
@@ -437,20 +436,18 @@ class addtrack():
   self.album._requests -= 1
   self.album._finalize_loading(None)
 
- def _replaceChars(self, dirpath):
-  filepathname = list()
-  for dir in dirpath:
-   for old, new in self.cfg['abetterpath_tag_chars_to_chars'].iteritems():
-    dir = dir.replace(old[0], new[0])
-   if dir[0:3] == '...':
-    dir = u'\u2026' + dir[3:]
-   if dir[-3:] == '...':
-    dir = dir[:-3] + u'\u2026'
-   filepathname.append(dir.rstrip(". ").strip(" "))
-  return filepathname
 
-
-
+def replaceChars(dirpath, chars):
+ filepathname = list()
+ for dir in dirpath:
+  for old, new in chars.iteritems():
+   dir = dir.replace(old[0], new[0])
+  if dir[0:3] == '...':
+   dir = u'\u2026' + dir[3:]
+  if dir[-3:] == '...':
+   dir = dir[:-3] + u'\u2026'
+  filepathname.append(dir.rstrip(". ").strip(" "))
+ return filepathname
 
 
 
@@ -522,8 +519,8 @@ class cfg():
   self.defaults.append(("list", 'abetterpath_album_release_type_compilation', self.writeList(['album', 'single', 'ep', 'live', 'other'])))
   self.defaults.append(("list", 'abetterpath_album_release_type_list', self.writeList(['Single', 'EP', 'Remix', 'Live'])))
   self.defaults.append(("list", 'abetterpath_album_compilation_excluded', self.writeList(['remix'])))
-  self.defaults.append(("list", 'abetterpath_album_release_type_reverse', self.writeList([''])))
-  self.defaults.append(("list", 'abetterpath_album_release_status_reverse', self.writeList(['Live'])))
+  self.defaults.append(("list", 'abetterpath_album_release_type_reverse', self.writeList(['Live'])))
+  self.defaults.append(("list", 'abetterpath_album_release_status_reverse', self.writeList([''])))
   self.defaults.append(("list", 'abetterpath_album_catalog_order', self.writeList(['catalognumber', 'barcode', 'asin', 'date', 'totaltracks', 'releasetype'])))
   lists = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'lists')
   for infile in os.listdir(lists):
@@ -581,10 +578,10 @@ class cfg():
    returnstring = ""
    if type(inlist.itervalues().next()).__name__ == "str":
     for key, value in inlist.iteritems():
-     returnstring += key + " = " + value
+     returnstring += key + " = " + value + "\n"
    else: # fileType == "tuple":
     for key, value in inlist.iteritems():
-     returnstring += value[0] + ", " + value[1] + " = " + key
+     returnstring += value[0] + ", " + value[1] + " = " + key + "\n"
    return returnstring
   
 
@@ -604,6 +601,7 @@ class abetterpathoptionspage(OptionsPage):
   self.loadVars = {'bool': 'setChecked', 'int': 'setValue', 'str': 'setText', 'list': 'setText', 'dict': 'setText', 'tuple': 'setText'}
   self.saveVars = {'bool': 'isChecked', 'int': 'value', 'str': 'text', 'list': 'text', 'dict': 'text', 'tuple': 'text'}
   self.cfg = cfg()
+  #self.config.load(album.config.setting)
   self.separator = ","
   self.options = list()
   for option in self.cfg.defaults:
@@ -640,7 +638,8 @@ class abetterpathoptionspage(OptionsPage):
    try:
     self.options.setting[option[1]] = getattr(getattr(self.ui, option[1]), self.saveVars[option[0]])() # self.options.setting['alpha_number'] = self.ui.alpha_number.isChecked()
    except:
-    self.options.setting[option[1]] = option[2]  # self.options.setting['alpha_number'] = option[2]
+    #self.options.setting[option[1]] = option[2]  # self.options.setting['alpha_number'] = option[2]
+    pass
 
 
 register_album_metadata_processor(addalbum)

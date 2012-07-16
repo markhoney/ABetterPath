@@ -1,12 +1,12 @@
-Please use the following in Picard for File Naming. This can be found in Picard at Options, Options, File naming, Name files like this:
+Please use the following in Picard for File Naming. This can be found in Picard at Options, Options, File naming, Name files like this
+ %_dir9%/%_dir8%/%_dir7%/%_dir6%/%_dir5%/%_dir4%/%_dir3%/%_dir2%/%_dir1%/%_dir0%/%_name1%. %_name0%
 
-%_dir9%/%_dir8%/%_dir7%/%_dir6%/%_dir5%/%_dir4%/%_dir3%/%_dir2%/%_dir1%/%_dir0%/%_name1%. %_name0%
+Tags to keep
+ replaygain_album_gain replaygain_album_peak replaygain_track_gain replaygain_track_peak bpm lyrics:description ~id3:SYLT
 
-Tags to keep:
-
-replaygain_album_gain replaygain_album_peak replaygain_track_gain replaygain_track_peak bpm lyrics:description ~id3:SYLT
-
-
+Additional files to move
+ folder.jpg fanart.jpg logo.png cdart.png
+ 
 Create GUI Script
  http://qt.nokia.com/downloads/qt-creator-binary-for-windows
  http://www.riverbankcomputing.co.uk/software/pyqt/download
@@ -20,14 +20,14 @@ Find multi-disc releases that need sorting out in the DB
  sudo find /mnt/media/Audio -type d -name *\(disc* -exec mv "{}" /mnt/media/Unsorted/Music/Multi-Disc \;
  sudo find /mnt/media/Audio -type d -name *\(bonus* -exec mv "{}" /mnt/media/Unsorted/Music/Multi-Disc \;
 
-Additional files to move
- folder.jpg fanart.jpg logo.png cdart.png
-
-Find empty folders
- find /mnt/media/Audio -type d -empty
+Remove empty folders:
+ sudo find /mnt/media/Audio -iname 'thumbs.db' -exec rm -rfv {} \;
+ sudo find /mnt/media/Audio -type d -empty -exec rmdir -v {} \;
 
 Find folder.png and folder.tiff
+ sudo find /mnt/media/Audio/Music -name 'Folder.jpg' -exec rename 's/Folder.jpg/folder.jpg/' '{}' \;
  find /mnt/media/Audio -name folder.png
  find /mnt/media/Audio -name folder.tiff
 
-http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html
+Last.FM Word Lists
+ http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html

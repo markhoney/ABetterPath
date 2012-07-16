@@ -69,7 +69,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="artist_alpha_number">
+        <widget class="QLineEdit" name="abetterpath_artist_alpha_number">
          <property name="maxLength">
           <number>1</number>
          </property>
@@ -79,7 +79,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QCheckBox" name="artist_alpha"/>
+        <widget class="QCheckBox" name="abetterpath_artist_alpha"/>
        </item>
       </layout>
      </widget>
@@ -117,7 +117,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QCheckBox" name="artist_sort_name"/>
+        <widget class="QCheckBox" name="abetterpath_artist_sort_name"/>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="prefixListLabel">
@@ -127,7 +127,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="artist_sort_prefix_list"/>
+        <widget class="QLineEdit" name="abetterpath_artist_sort_prefix_list"/>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="swapArtistPrefixesLabel">
@@ -137,7 +137,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QCheckBox" name="artist_sort_prefix"/>
+        <widget class="QCheckBox" name="abetterpath_artist_sort_prefix"/>
        </item>
       </layout>
      </widget>
@@ -172,52 +172,10 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="artist_various"/>
+        <widget class="QLineEdit" name="abetterpath_artist_various"/>
        </item>
       </layout>
      </widget>
-    </widget>
-    <widget class="QCheckBox" name="checkBox">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>10</y>
-       <width>70</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>CheckBox</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>50</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string extracomment="Testing">Test</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>41</y>
-       <width>42</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="buttonSymbols">
-      <enum>QAbstractSpinBox::UpDownArrows</enum>
-     </property>
-     <property name="specialValueText">
-      <string/>
-     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="optionstab">
@@ -283,7 +241,7 @@
        <rect>
         <x>220</x>
         <y>20</y>
-        <width>160</width>
+        <width>164</width>
         <height>101</height>
        </rect>
       </property>
@@ -309,7 +267,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="prefixLineEdit_3"/>
+        <widget class="QLineEdit" name="abetterpath_album_sub_prefix"/>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="separatorLabel_2">
@@ -319,7 +277,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="separatorLineEdit_2"/>
+        <widget class="QLineEdit" name="abetterpath_album_sub_separator"/>
        </item>
       </layout>
      </widget>
@@ -342,7 +300,7 @@
         <x>10</x>
         <y>20</y>
         <width>191</width>
-        <height>151</height>
+        <height>163</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout_2">
@@ -357,7 +315,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QCheckBox" name="album_date_folder"/>
+        <widget class="QCheckBox" name="abetterpath_album_date_folder"/>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="prefixLabel_2">
@@ -367,7 +325,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="prefixLineEdit_2"/>
+        <widget class="QLineEdit" name="abetterpath_album_date_prefix"/>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="suffixLabel_2">
@@ -377,7 +335,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="suffixLineEdit_2">
+        <widget class="QLineEdit" name="abetterpath_album_date_suffix">
          <property name="text">
           <string/>
          </property>
@@ -401,7 +359,7 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QLineEdit" name="separatorLineEdit"/>
+        <widget class="QLineEdit" name="abetterpath_tag_separator"/>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="padDateLabel">
@@ -416,6 +374,11 @@
       </layout>
      </widget>
     </widget>
+   </widget>
+   <widget class="QWidget" name="tracktab">
+    <attribute name="title">
+     <string>Track</string>
+    </attribute>
    </widget>
    <widget class="QWidget" name="liststab">
     <attribute name="title">
