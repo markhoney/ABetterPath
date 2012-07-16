@@ -30,6 +30,14 @@ import re, os, codecs, time, sys
 import unicodedata
 from datetime import datetime, timedelta
 
+fmhost = 'ws.audioscrobbler.com'
+fmport = 80
+import traceback
+from picard.util import partial
+from picard.webservice import REQUEST_DELAY
+REQUEST_DELAY[(fmhost, fmport)] = 200
+
+
 PLUGIN_NAME = "A Better Path"
 PLUGIN_AUTHOR = 'Mark Honeychurch'
 PLUGIN_DESCRIPTION = 'Makes some extra tags to help with sorting out my music collection exactly how I like it!'
@@ -38,11 +46,17 @@ PLUGIN_API_VERSIONS = ["1.0"]
 
 class addalbum():
  def __init__(self, album, metadata, release):
+<<<<<<< HEAD
   self.config = cfg()
   self.config.load(album.config.setting)
   self.cfg = self.config.cfg
   from picard.webservice import REQUEST_DELAY
   REQUEST_DELAY[(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'])] = 200
+=======
+  self.name = ""
+  self.config = cfg()
+  self.cfg = self.config.createcfg(album.config.setting)
+>>>>>>> d1a5b8dc5d425c902153e6aed398dbf4b40eb1fc
   self.album = album
   self.metadata = metadata
   self.release = release
@@ -85,6 +99,7 @@ class addalbum():
      self.path.append(self.artistpseudonym)
   albumDate = self._date()
   albumYear = ""
+<<<<<<< HEAD
   if self.cfg['abetterpath_album_date_folder'] and albumDate:
    albumYear = self.cfg['abetterpath_album_date_prefix'] + time.strftime(self.cfg['abetterpath_album_date_format'], albumDate) + self.cfg['abetterpath_album_date_suffix']
   albumSuffix = self._suffix()
@@ -95,6 +110,45 @@ class addalbum():
   #self._artisturl()
   self.metadata['~filename'] = self.cfg['abetterpath_tag_separator'].join(self.path)
   self._folderdate()
+=======
+  if self.cfg['album_date_folder'] and albumDate:
+   albumYear = self.cfg['album_date_prefix'] + time.strftime(self.cfg['album_date_format'], albumDate) + self.cfg['album_date_suffix']
+  albumSuffix = self._suffix(metadata["releasestatus"], metadata["releasetype"], metadata["album"])
+  self.albumdetails['path'].append(albumYear + self.albumdetails['name'] + albumSuffix)
+  if not self.cfg['artist_sort_tag']:
+   metadata["albumartistsort"] = self.albumdetails['artist']
+  self._genre()
+  #metadata['filename'] = self.cfg['separator'].join(self.albumdetails['path'])
+  metadata['~filename'] = '\x00'.join(self.albumdetails['path'])
+  if self.albumdetails['compilation']:
+   metadata['compilation'] = "1" # Mark the release as a compilation
+
+ def _date(self, dateList):
+  date = False
+  for albumDate in dateList:
+   for dateFormat in self.cfg['album_date_formats']:
+    try:
+     dateTemp = datetime.strptime(albumDate, dateFormat)
+    except:
+     pass
+    else:
+     if not date:
+      date = dateTemp
+  return date
+
+ def _artistAliases(self):
+  if self.albumdetails['name'] in self.cfg['artist_album_to_artist']:
+   if self.cfg['artist_album_to_artist'][self.albumdetails['name']][0] == self.albumdetails['artist']:
+    self.albumdetails['artist'] = self.cfg['artist_album_to_artist'][self.albumdetails['name']][1]
+  for realname in self.cfg['artists_to_artist']:
+   if self.albumdetails['artist'].startswith(realname):
+    self.albumdetails['artist'] = realname
+  if self.albumdetails['artist'] in self.cfg['artist_to_artist']:
+   self.albumdetails['artist'] = self.cfg['artist_to_artist'][self.albumdetails['artist']]
+  if self.albumdetails['artist'] in self.cfg['artist_to_artist_pseudonym']:
+   self.albumdetails['pseudonym'] = self.albumdetails['artist']
+   self.albumdetails['artist'] = self.cfg['artist_to_artist_pseudonym'][self.albumdetails['artist']]
+>>>>>>> d1a5b8dc5d425c902153e6aed398dbf4b40eb1fc
 
  def _albumAliases(self):
   albumName = self.albumname
@@ -218,6 +272,7 @@ class addalbum():
   #sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_album_toptags'] + "\n")
   self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_album_toptags'], partial(self._processlastfmalbumtags))
 
+<<<<<<< HEAD
  def _processlastfmalbumtags(self, data, http, error):
   try:
    self._lastfmtags(data.lfm[0].toptags[0].tag)
@@ -348,9 +403,64 @@ class addalbum():
      pass
 
 
+=======
+ def _genreold(self):
+  from pylast import pylast
+  lastfm = pylast.LastFMNetwork(api_key = "9407ca2b8eaa65632a283563ddd56792", api_secret = "2b5494bbe88d9f3cb473e2981e325be8", username = "", password_hash = "")
+  try:
+   info = lastfm.get_album_by_mbid(self.metadata['musicbrainz_albumid'])
+  except:
+   try:
+    info = lastfm.get_artist_by_mbid(self.metadata['musicbrainz_albumartistid'])
+   except:
+    pass
+  if info:
+   try:
+    possibleGenres = info.get_top_tags(limit = 10)
+   except:
+    pass
+   else:
+    genre = ""
+    for genres in possibleGenres:
+     if (genre == ""):
+      genreName = genres.item.name.title()
+      if (genreName in self.cfg['list-genres']):
+       genre = genreName
+    if (genre == ""):
+     try:
+      genre = possibleGenres[0].item.name.title()
+     except:
+      pass
+   return genre
 
+# metadata["mood"]
+# metadata["genre"]
+# metadata['~id3:WOAR'] # Artist Webpage
+# metadata['~id3:TCMP'] # iTunes Compilation
+# metadata['~id3:USLT'] # Unsynced Lyrics
+# metadata['~id3:TIT3'] # Subtitle
+>>>>>>> d1a5b8dc5d425c902153e6aed398dbf4b40eb1fc
 
-
+ def _genre(self):
+  #from picard.util import partial
+  from picard.webservice import REQUEST_DELAY
+  fmhost = 'ws.audioscrobbler.com'
+  fmport = 80
+  fmmethod = "/2.0/?method="
+  fmid = "&mbid="
+  fmapi = "&api_key=9407ca2b8eaa65632a283563ddd56792"
+  fmartist = "artist.gettoptags"
+  fmalbum = "album.gettoptags"
+  fmartistpath = fmmethod + fmartist + fmid + self.metadata['musicbrainz_albumartistid'] + fmapi
+  fmalbumpath = fmmethod + fmalbum + fmid + self.metadata['musicbrainz_albumid'] + fmapi
+  REQUEST_DELAY[(fmhost, fmport)] = 200
+  self.album.tagger.xmlws.get(fmhost, fmport, fmalbumpath, partial(self._getgenres))
+  #self.album.tagger.xmlws.get(fmhost, fmport, fmpath, partial(self._getgenres))
+  
+ def _getgenres(self, data, http, error):
+  import pprint
+  sys.stderr.write(pprint.pformat(data))
+  self.metadata["genre"] = data.lfm[0].toptags[0].tag[0].name
 
 class addtrack():
  def __init__(self, album, metadata, release, track):
@@ -398,6 +508,7 @@ class addtrack():
   for namepart in reversed(self.path):
    self.metadata['~dir' + str(index)] = namepart
    index += 1
+<<<<<<< HEAD
   self.metadata['~name1'] = self.tracknumber
   self.metadata['~name0'] = self.trackname
   self.path.append(self.tracknumber + self.cfg['abetterpath_track_tracknumber_separator'] + self.trackname + '.' + 'mp3') # self.metadata['~extension']
@@ -411,6 +522,24 @@ class addtrack():
   if self.cfg['abetterpath_artist_sort_itunes']:
    if self.cfg['abetterpath_artist_sort_itunes_albumartist']:
     self.metadata['~id3:TSO2'] = self.metadata['albumartistsort']
+=======
+  metadata['~name1'] = tracknumber
+  metadata['~name0'] = self.trackdetails['filename']
+  self.trackdetails['path'].append(tracknumber + self.cfg['track_tracknumber_separator'] + self.trackdetails['filename'] + '.' + metadata['~extension'])
+  #metadata['filename'] = os.path.join(*self.trackdetails['path'])
+  metadata['~filename'] = "/".join(self.trackdetails['path'])
+  if self.cfg['track_tag_filename']:
+   metadata['~id3:TOFN'] = metadata['~filename']
+  if not self.cfg['artist_sort_tag']:
+   metadata["artistsort"] = metadata["artist"]
+  if not self.cfg['album_sort_tag']:
+   metadata["albumsort"] = metadata["album"]
+  if self.cfg['album_sub_tag'] and self.trackdetails['discsuffix']:
+   metadata["albumsort"] += self.trackdetails['discsuffix']
+  if self.cfg['artist_sort_itunes']:
+   if self.cfg['artist_sort_itunes_albumartist']:
+    metadata['~id3:TSO2'] = metadata['albumartistsort']
+>>>>>>> d1a5b8dc5d425c902153e6aed398dbf4b40eb1fc
    else:
     self.metadata['~id3:TSO2'] = self.metadata['artistsort']
 
