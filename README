@@ -23,11 +23,12 @@ Find multi-disc releases that need sorting out in the DB
 Remove empty folders:
  sudo find /mnt/media/Audio -iname 'thumbs.db' -exec rm -rfv {} \;
  sudo find /mnt/media/Audio -type d -empty -exec rmdir -v {} \;
+ find /mnt/media/Audio -size 0
 
 Find folder.png and folder.tiff
  sudo find /mnt/media/Audio/Music -name 'Folder.jpg' -exec rename 's/Folder.jpg/folder.jpg/' '{}' \;
- find /mnt/media/Audio -name folder.png
- find /mnt/media/Audio -name folder.tiff
+ find /mnt/media/Audio -iname folder.png
+ find /mnt/media/Audio -iname folder.tiff
 
 Last.FM Word Lists
  http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html

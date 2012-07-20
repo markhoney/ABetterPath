@@ -57,10 +57,12 @@ class addalbum():
   self.tags = dict()
   self.urls = dict()
   firstartist = self.metadata['musicbrainz_albumartistid'].split(';')[0]
-  self.urls['lastfm_artist_toptags'] = "/2.0/?method=artist.gettoptags&mbid=" + firstartist + "&api_key=9407ca2b8eaa65632a283563ddd56792"
-  self.urls['lastfm_album_toptags'] = "/2.0/?method=album.gettoptags&mbid=" + self.metadata['musicbrainz_albumid'] + "&api_key=9407ca2b8eaa65632a283563ddd56792"
-  self.urls['echonest_artist_tags'] = "/api/v4/artist/terms?api_key=A0ODEL28DRISOEJ0D&id=musicbrainz:artist:" + firstartist + "&format=xml"
-  self.urls['echonest_artist_url'] = "/api/v4/artist/urls?api_key=A0ODEL28DRISOEJ0D&id=musicbrainz:artist:" + firstartist + "&format=xml"
+  self.urls['lastfm_mbidalbum_toptags'] = "/2.0/?method=album.gettoptags&mbid=" + self.metadata['musicbrainz_albumid'] + "&api_key=9407ca2b8eaa65632a283563ddd56792"
+  self.urls['lastfm_album_toptags'] = "/2.0/?method=album.gettoptags&artist=" + self._lastfmencode(self.albumartist) + "&album=" + self._lastfmencode(self.albumname) + "&api_key=9407ca2b8eaa65632a283563ddd56792"
+  self.urls['lastfm_mbidartist_toptags'] = "/2.0/?method=artist.gettoptags&mbid=" + firstartist + "&api_key=9407ca2b8eaa65632a283563ddd56792"
+  self.urls['lastfm_artist_toptags'] = "/2.0/?method=artist.gettoptags&artist=" + self._lastfmencode(self.albumartist) + "&api_key=9407ca2b8eaa65632a283563ddd56792"
+  self.urls['echonest_artist_tags'] = "/api/v4/artist/terms?api_key=A0ODEL28DRISOEJ0D&id=musicbrainz:artist:" + self._lastfmencode(firstartist) + "&format=xml"
+  self.urls['echonest_artist_url'] = "/api/v4/artist/urls?api_key=A0ODEL28DRISOEJ0D&id=musicbrainz:artist:" + self._lastfmencode(firstartist) + "&format=xml"
   self._albumAliases()
   self._artistAliases()
   self._changePath()
@@ -96,6 +98,15 @@ class addalbum():
   self.metadata['~filename'] = self.cfg['abetterpath_tag_separator'].join(self.path)
   self._folderdate()
 
+ def _lastfmencode(self, string):
+  #return QtCore.QUrl.toPercentEncoding(string)
+  #return QtCore.QUrl.toPercentEncoding(unicode(QtCore.QUrl.toPercentEncoding(string)))
+  #return QtCore.QUrl.toPercentEncoding(unicodedata.normalize('NFKD', string)) # .encode('ascii', 'ignore')
+  output = ""
+  for letter in string:
+   output += unicodedata.normalize('NFKD', letter)[0]
+  return QtCore.QUrl.toPercentEncoding(output)
+
  def _albumAliases(self):
   albumName = self.albumname
   groups = list()
@@ -111,29 +122,27 @@ class addalbum():
   self.path.extend(groups)
 
  def _artistAliases(self):
-  if self.albumname in self.cfg['abetterpath_artist_album_to_artist']:
-   if self.cfg['abetterpath_artist_album_to_artist'][self.albumname][0] == self.albumartist:
-    self.albumartist = self.cfg['abetterpath_artist_album_to_artist'][self.albumname][1]
+  if (self.albumartist, self.albumname) in self.cfg['abetterpath_artist_album_to_artist']:
+   self.albumartist = self.cfg['abetterpath_artist_album_to_artist'][(self.albumartist, self.albumname)]
   for realname in self.cfg['abetterpath_artist_to_artistprefix']:
    if self.albumartist.startswith(realname):
     self.albumartist = realname
   if self.albumartist in self.cfg['abetterpath_artist_to_artist']:
    self.albumartist = self.cfg['abetterpath_artist_to_artist'][self.albumartist]
   if self.albumartist in self.cfg['abetterpath_artist_to_artist_pseudonym']:
-   self.pseudonym = self.albumartist
+   self.artistpseudonym = self.albumartist
    self.albumartist = self.cfg['abetterpath_artist_to_artist_pseudonym'][self.albumartist]
 
  def _changePath(self):
-  for newPath, album in self.cfg['abetterpath_artist_album_to_folder'].iteritems():
-   if (album[0] == self.metadata["albumartist"] or album[0] == self.albumartist) and (album[1] == self.metadata["albumartist"] or album[1] == self.albumname):
-    self.path = self._splitPath(newPath)
-    self.path.append(self.albumartist)
-    return
-  for albumPart in self.cfg['abetterpath_album_partial_to_folder']:
-   if albumPart in self.metadata['album'] or albumPart in self.albumname:
-    self.path = self._splitPath(self.cfg['abetterpath_album_partial_to_folder'][albumPart])
-    self.path.append(self.albumartist)
-    return
+  if (self.albumartist, self.albumname) in self.cfg['abetterpath_artist_album_to_folder']:
+   self.path = self._splitPath(self.cfg['abetterpath_artist_album_to_folder'][(self.albumartist, self.albumname)])
+   self.path.append(self.albumartist)
+   return
+  #for albumPart in self.cfg['abetterpath_album_partial_to_folder']:
+  # if albumPart in self.metadata['album'] or albumPart in self.albumname:
+  #  self.path = self._splitPath(self.cfg['abetterpath_album_partial_to_folder'][albumPart])
+  #  self.path.append(self.albumartist)
+  #  return
   if self.metadata['releasetype'].lower() in self.cfg['abetterpath_album_type_to_folder']:
    self.path = self._splitPath(self.cfg['abetterpath_album_type_to_folder'][self.metadata['releasetype'].lower()])
    self.path.append(self.albumartist)
@@ -211,7 +220,20 @@ class addalbum():
   pass
  
  def _albumtags(self):
-  self._lastfmalbumtags()
+  self._lastfmmbidalbumtags()
+
+ def _lastfmmbidalbumtags(self):
+  self.album._requests += 1
+  #sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_mbidalbum_toptags'] + "\n")
+  self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_mbidalbum_toptags'], partial(self._processlastfmmbidalbumtags))
+
+ def _processlastfmmbidalbumtags(self, data, http, error):
+  try:
+   self._lastfmtags(data.lfm[0].toptags[0].tag)
+  except:
+   self._lastfmalbumtags()
+  else:
+   self._lastfmartisttags()
 
  def _lastfmalbumtags(self):
   self.album._requests += 1
@@ -219,9 +241,29 @@ class addalbum():
   self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_album_toptags'], partial(self._processlastfmalbumtags))
 
  def _processlastfmalbumtags(self, data, http, error):
-  self._lastfmtags(data)
-  self._lastfmartisttags()
+  try:
+   self._lastfmtags(data.lfm[0].toptags[0].tag)
+  except:
+   pass
+  self._lastfmmbidartisttags()
 
+ def _lastfmmbidartisttags(self):
+  if self.metadata["albumartist"] <> "Various Artists":
+   self.album._requests += 1
+   #sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_mbidartist_toptags'] + "\n")
+   self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_mbidartist_toptags'], partial(self._processlastfmmbidartisttags))
+  else:
+   self._processtags()
+
+ def _processlastfmmbidartisttags(self, data, http, error):
+  try:
+   self._lastfmtags(data.lfm[0].toptags[0].tag)
+  except:
+   self._lastfmartisttags()
+  else:
+   self._processtags()
+  #self._echonestartisttags()
+  
  def _lastfmartisttags(self):
   if self.metadata["albumartist"] <> "Various Artists":
    self.album._requests += 1
@@ -231,10 +273,13 @@ class addalbum():
    self._processtags()
 
  def _processlastfmartisttags(self, data, http, error):
-  self._lastfmtags(data)
+  try:
+   self._lastfmtags(data.lfm[0].toptags[0].tag)
+  except:
+   pass
   #self._echonestartisttags()
   self._processtags()
-  
+
  def _echonestartisttags(self, data, http, error):
   if self.metadata["albumartist"] <> "Various Artists":
    self.album._requests += 1
@@ -254,6 +299,7 @@ class addalbum():
  def _processtags(self):
   if self.tags:
    for tag in self.tags.copy():
+    #sys.stderr.write(tag.encode('ascii', 'ignore') + " = " + str(self.tags[tag]) + "\n")
     if tag in self.cfg['abetterpath_tag_to_tag']:
      self.tags[self.cfg['abetterpath_tag_to_tag'][tag]] = self.tags[tag]
      del self.tags[tag]
@@ -262,9 +308,9 @@ class addalbum():
   self.album._requests = 0
   self.album._finalize_loading(None)
 
- def _lastfmtags(self, data):
+ def _lastfmtags(self, tags):
   try:
-   for tag in data.lfm[0].toptags[0].tag:
+   for tag in tags:
     self._addtag(tag.name[0].text.title(), int(tag.count[0].text))
   except:
    pass
@@ -289,7 +335,8 @@ class addalbum():
   if genre:
    self.metadata['grouping'] = max(genre, key=genre.get)
   if subgenres:
-   self.metadata['genre'] = self.cfg['abetterpath_tag_separator'].join(subgenres)
+   #self.metadata['genre'] = self.cfg['abetterpath_tag_separator'].join(subgenres)
+   self.metadata['genre'] = subgenres
   
  def _filtertags(self, whitelist, maxvalues, threshold, tagname):
   filtered = list()
@@ -297,7 +344,8 @@ class addalbum():
    if len(filtered) < maxvalues and self.tags[tag] >= threshold and tag in whitelist:
     filtered.append(tag)
   if filtered:
-   self.metadata[tagname] = self.cfg['abetterpath_tag_separator'].join(filtered)
+   #self.metadata[tagname] = self.cfg['abetterpath_tag_separator'].join(filtered)
+   self.metadata[tagname] = filtered
 
  def _artisturl(self):
   """
@@ -330,9 +378,12 @@ class addalbum():
   else:
    timeTuple = (timeInt, timeInt)
    folderPath = os.path.join(self.album.config.setting["move_files_to"], *replaceChars(self.path, self.cfg['abetterpath_tag_chars_to_chars']))
-   if self.album.config.setting["move_files"] and not os.path.exists(folderPath):
-    os.makedirs(folderPath)
-   os.utime(folderPath, timeTuple)
+   #if self.album.config.setting["move_files"] and not os.path.exists(folderPath):
+   # os.makedirs(folderPath)
+   try:
+    os.utime(folderPath, timeTuple)
+   except:
+    pass
    #sys.stderr.write(folderPath + "\n")
 
  def _date(self):
@@ -364,7 +415,7 @@ class addtrack():
   self.path = self.metadata['~filename'].split(self.cfg['abetterpath_tag_separator'])
   self.tracknumber = 0
   self.trackname = self.metadata["title"]
-  import pprint
+  #import pprint
   #sys.stderr.write("album: " + pprint.pformat(self.album) + "\n\n")
   #sys.stderr.write("metadata: " + pprint.pformat(self.metadata) + "\n\n")
   #sys.stderr.write("release: " + pprint.pformat(self.release) + "\n\n")
@@ -565,7 +616,8 @@ class cfg():
     if len(split1) == 2:
      split2 = split1[0].split(",", 1)
      if len(split2) == 2:
-      returndict[split1[1].strip()] = [split2[0].strip(), split2[1].strip()]
+      #returndict[split1[1].strip()] = [split2[0].strip(), split2[1].strip()]
+      returndict[(split2[0].strip(), split2[1].strip())] = split1[1].strip()
   return returndict
 
  def writeList(self, inlist):
