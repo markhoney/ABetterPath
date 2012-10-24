@@ -1,11 +1,56 @@
-Please use the following in Picard for File Naming. This can be found in Picard at Options, Options, File naming, Name files like this
- %_dir9%/%_dir8%/%_dir7%/%_dir6%/%_dir5%/%_dir4%/%_dir3%/%_dir2%/%_dir1%/%_dir0%/%_name1%. %_name0%
+General
+ Account Information
+  Username - Your musicbrainz username
+  Password - Your musicbrainz password
+Metadata
+ Metadata
+  Translate artist names to this locale where possible - Tick
+  Convert Unicode punctuation characters to ASCII - Untick
+ Preferred Releases
+  Preferred replease types
+   Album, EP, Single, Soundtrack, Compilation, Live, Remix, Audiobook, Interview, Spokenword, Other
+  Preferred release countries
+   United Kingdom, United States, New Zealand, Australia, Europe, [Worldwide]
+  Preferred release formats
+   CD, 8cm CD, CD-R, DVD-Audio, DVD, DualDisc, USB Flash Drive, Digital Media, 12" Vinyl, 10" Vinyl, 7" Vinyl, SACD, HDCD
+Tags
+ Preserve timestamps of tagged files - Tick
+ Before Tagging
+  Clear existing tags - Tick
+  Remove ID3 tags from FLAC files - Tick
+  Remove APEv2 rags from MP3 files - Tick
+  Preserve these tags from being cleared or overwritten with MusicBrainz data:
+   replaygain_album_gain replaygain_album_peak replaygain_track_gain replaygain_track_peak bpm lyrics:description ~id3:SYLT
+ Tag compatibility
+  ID3v2 version - 2.4
+  Also include ID3v1 tags in the files - Untick
+  ID3v2 text encoding - UTF-16
+Cover Art
+ Embed cover images into tags - Untick
+ Save cover images as separate files - Tick
+ Filename - folder
+File naming
+ Rename files when saving - Tick
+ Replace non-ASCII characters - Untick
+ Move files to this directory when saving - Tick
+ Directory - Point to your root audio folder
+ Delete empty directories - Tick
+ Move additional files - Tick
+ Files - folder.jpg fanart.jpg logo.png cdart.png
+ Name files like this
+  %_dir9%/%_dir8%/%_dir7%/%_dir6%/%_dir5%/%_dir4%/%_dir3%/%_dir2%/%_dir1%/%_dir0%/%_name1%. %_name0%
+Fingerprinting
+ Audio Fingerprinting - Use AcoustID
+ AcoustID settings
+  API Key - Click the Get API key button and then login to the webpage with your MusicBrainz credentials to get an API key. Copy and paste this key into the API key box.
+Plugins
+ Plugins
+  A Better Path - Tick
+Advanced
+ User Interface
+  Show a quit confirmation dialog for unsaved changes - Untick
 
-Tags to keep
- replaygain_album_gain replaygain_album_peak replaygain_track_gain replaygain_track_peak bpm lyrics:description ~id3:SYLT
 
-Additional files to move
- folder.jpg fanart.jpg logo.png cdart.png
  
 Create GUI Script
  http://qt.nokia.com/downloads/qt-creator-binary-for-windows
@@ -29,6 +74,3 @@ Find folder.png and folder.tiff
  sudo find /mnt/media/Audio/Music -name 'Folder.jpg' -exec rename 's/Folder.jpg/folder.jpg/' '{}' \;
  find /mnt/media/Audio -iname folder.png
  find /mnt/media/Audio -iname folder.tiff
-
-Last.FM Word Lists
- http://tiptoes.hobby-site.com/mbz/lastfm/wordlists.html

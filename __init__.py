@@ -103,8 +103,11 @@ class addalbum():
   #return QtCore.QUrl.toPercentEncoding(unicode(QtCore.QUrl.toPercentEncoding(string)))
   #return QtCore.QUrl.toPercentEncoding(unicodedata.normalize('NFKD', string)) # .encode('ascii', 'ignore')
   output = ""
-  for letter in string:
-   output += unicodedata.normalize('NFKD', letter)[0]
+  #for letter in string:
+  # output += unicodedata.normalize('NFKD', letter)[0]
+  output = unicodedata.normalize('NFKD', string)
+  #output = unicodedata.normalize('NFKD', string).encode('ascii', 'ignore')
+  #sys.stderr.write(output + "\n")
   return QtCore.QUrl.toPercentEncoding(output)
 
  def _albumAliases(self):
@@ -224,7 +227,7 @@ class addalbum():
 
  def _lastfmmbidalbumtags(self):
   self.album._requests += 1
-  #sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_mbidalbum_toptags'] + "\n")
+  sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_mbidalbum_toptags'] + "\n")
   self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_mbidalbum_toptags'], partial(self._processlastfmmbidalbumtags))
 
  def _processlastfmmbidalbumtags(self, data, http, error):
@@ -237,7 +240,7 @@ class addalbum():
 
  def _lastfmalbumtags(self):
   self.album._requests += 1
-  #sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_album_toptags'] + "\n")
+  sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_album_toptags'] + "\n")
   self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_album_toptags'], partial(self._processlastfmalbumtags))
 
  def _processlastfmalbumtags(self, data, http, error):
@@ -250,7 +253,7 @@ class addalbum():
  def _lastfmmbidartisttags(self):
   if self.metadata["albumartist"] <> "Various Artists":
    self.album._requests += 1
-   #sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_mbidartist_toptags'] + "\n")
+   sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_mbidartist_toptags'] + "\n")
    self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_mbidartist_toptags'], partial(self._processlastfmmbidartisttags))
   else:
    self._processtags()
@@ -267,7 +270,7 @@ class addalbum():
  def _lastfmartisttags(self):
   if self.metadata["albumartist"] <> "Various Artists":
    self.album._requests += 1
-   #sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_artist_toptags'] + "\n")
+   sys.stderr.write("http://" + self.cfg['abetterpath_http_lastfm_host'] + ":" + str(self.cfg['abetterpath_http_lastfm_port']) + self.urls['lastfm_artist_toptags'] + "\n")
    self.album.tagger.xmlws.get(self.cfg['abetterpath_http_lastfm_host'], self.cfg['abetterpath_http_lastfm_port'], self.urls['lastfm_artist_toptags'], partial(self._processlastfmartisttags))
   else:
    self._processtags()
@@ -283,7 +286,7 @@ class addalbum():
  def _echonestartisttags(self, data, http, error):
   if self.metadata["albumartist"] <> "Various Artists":
    self.album._requests += 1
-   #sys.stderr.write("http://" + self.cfg['abetterpath_http_echonest_host'] + ":" + str(self.cfg['abetterpath_http_echonest_port']) + self.urls['echonest_artist_tags'] + "\n")
+   sys.stderr.write("http://" + self.cfg['abetterpath_http_echonest_host'] + ":" + str(self.cfg['abetterpath_http_echonest_port']) + self.urls['echonest_artist_tags'] + "\n")
    self.album.tagger.xmlws.get(self.cfg['abetterpath_http_echonest_host'], self.cfg['abetterpath_http_echonest_port'], self.urls['echonest_artist_tags'], partial(self._processechonestartisttags))
   else:
    self._processtags()
